@@ -1,0 +1,12 @@
+/*
+  Content-Signal: search=yes, ai-input=yes, ai-train=no
+  X-Content-Type-Options: nosniff
+  Link: </llms.txt>; rel="alternate"; type="text/plain", </index.json>; rel="alternate"; type="application/json", </.well-known/mcp.json>; rel="service-desc"
+
+/index.json
+  Access-Control-Allow-Origin: *
+  Cache-Control: public, max-age=300, s-maxage=3600, stale-while-revalidate=86400
+
+/llms.txt
+  Content-Type: text/plain; charset=utf-8
+  Cache-Control: public, max-age=300, s-maxage=3600

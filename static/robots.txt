@@ -1,0 +1,10 @@
+# 52etf.net — SEO & Cloudflare Agent Policy
+# Content-Signal: search=yes, ai-input=yes, ai-train=no
+User-agent: *
+Allow: /
+Allow: /llms.txt
+Allow: /index.json
+Allow: /.well-known/mcp.json
+Crawl-delay: 5
+
+Sitemap: https://52etf.net/sitemap.xml

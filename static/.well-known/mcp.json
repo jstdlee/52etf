@@ -1,0 +1,23 @@
+{
+  "schema_version": "2026-01",
+  "name": "52etf-hugo-indicator-hub",
+  "description": "Hugo-based plaintext economic indicator & link hub (52etf.net). Managed via GitHub repo Markdown files.",
+  "url": "https://52etf.net",
+  "endpoints": {
+    "sitemap_xml": "https://52etf.net/sitemap.xml",
+    "llms_txt": "https://52etf.net/llms.txt",
+    "search_index_json": "https://52etf.net/index.json"
+  },
+  "tools": [
+    {
+      "name": "fuzzy_search_indicators",
+      "description": "Fuzzy search indicators by keyword, title, or cached metric",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "query": { "type": "string" }
+        }
+      }
+    }
+  ]
+}

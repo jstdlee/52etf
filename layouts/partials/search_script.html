@@ -1,0 +1,64 @@
+<script>
+function fuzzyMatch(text, query) {
+  var q = query.trim().toLowerCase();
+  if (!q) return true;
+  var tokens = q.split(/\s+/);
+  for (var i = 0; i < tokens.length; i++) {
+    var t = tokens[i].replace(/^#/, '');
+    if (!t) continue;
+    if (text.indexOf(t) !== -1) continue;
+    var ti = 0;
+    for (var ci = 0; ci < text.length && ti < t.length; ci++) {
+      if (text[ci] === t[ti]) ti++;
+    }
+    if (ti < t.length) return false;
+  }
+  return true;
+}
+function runSearch() {
+  var input = document.getElementById('q');
+  if (!input) return;
+  var q = input.value || '';
+  var rows = document.querySelectorAll('.item-row');
+  var shown = 0;
+  for (var i = 0; i < rows.length; i++) {
+    var hay = rows[i].getAttribute('data-search') || '';
+    var ok = fuzzyMatch(hay, q);
+    rows[i].style.display = ok ? '' : 'none';
+    if (ok) shown++;
+  }
+  var stat = document.getElementById('search-stat');
+  if (stat) stat.textContent = q.trim() ? ('匹配 ' + shown + ' 条') : ('共 ' + rows.length + ' 条');
+}
+function setKw(kw) {
+  var input = document.getElementById('q');
+  if (!input) return;
+  input.value = kw;
+  runSearch();
+}
+function clearSearch() {
+  var input = document.getElementById('q');
+  if (!input) return;
+  input.value = '';
+  runSearch();
+}
+(function() {
+  try {
+    var params = new URLSearchParams(window.location.search);
+    var qParam = params.get('q');
+    if (qParam) setKw(qParam);
+  } catch (e) {}
+})();
+if (typeof navigator !== 'undefined' && navigator.modelContext && typeof navigator.modelContext.registerTool === 'function') {
+  try {
+    navigator.modelContext.registerTool({
+      name: 'fuzzy_search_indicators',
+      description: 'Fuzzy search 52etf.net indicators by keyword, title, or cached metric',
+      execute: async function(args) {
+        setKw((args && args.query) || '');
+        return { matched: document.getElementById('search-stat').textContent };
+      }
+    });
+  } catch (e) {}
+}
+</script>

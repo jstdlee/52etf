@@ -1,0 +1,17 @@
+{{- $refUnix := (time "2026-10-24T21:30:00+08:00").Unix -}}
+{{- $allPages := sort (where .Site.RegularPages "Section" "!=" "") "Lastmod" "desc" -}}
+# 52etf.net — Hugo Plaintext Financial Indicator & WebMCP Hub
+> 仅内容与连接呈现，不做任何解读与个人资产透露。
+> 更新时间: 2026-10-24 21:30 UTC+8 | Sitemap: {{ "sitemap.xml" | absURL }} | JSON Index: {{ "index.json" | absURL }} | WebMCP: {{ ".well-known/mcp.json" | absURL }}
+
+## 目录列表 (对应 GitHub Repo content/<dir>/)
+{{- range sort .Site.Sections "Lastmod" "desc" }}
+- {{ .Lastmod.Format "2006-01-02" }} {{ .Permalink }} {{ .Title }} ({{ len .RegularPages }}篇)
+{{- end }}
+
+## 全部指标与独立页面索引 (按更新时间倒序; >6个月未更新标红标记)
+{{- range $allPages }}
+{{- $ageDays := div (sub $refUnix .Lastmod.Unix) 86400 -}}
+{{- $isStale := gt $ageDays 180 }}
+- {{ .Lastmod.Format "2006-01-02" }}{{ if $isStale }} [STALE >6M: {{ $ageDays }}d]{{ end }} [{{ .Title }}]({{ .Permalink }}) : {{ .Params.summary }} | 外链: {{ .Params.ext_url }} | 标记: {{ delimit (.Params.keywords | default slice) ", " }}
+{{- end }}

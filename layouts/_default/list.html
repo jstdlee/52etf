@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+{{ partial "head.html" . }}
+</head>
+<body>
+<div class="line"><a href="{{ "" | relURL }}">../ 返回 52etf.net 首页</a> | <a href="{{ "sitemap.xml" | relURL }}">sitemap.xml</a> | <a href="{{ "llms.txt" | relURL }}">llms.txt</a> | <a href="{{ "index.json" | relURL }}">index.json</a></div>
+<div class="sec">{{ .Title }} (Repo目录: content/{{ .Section }}/*.md)</div>
+<div class="line muted">{{ .Description }}</div>
+
+<div class="line" style="margin:10px 0;">
+<input id="q" type="search" placeholder="在本目录模糊搜索..." oninput="runSearch()">
+<a href="javascript:void(0)" onclick="clearSearch()">[清除]</a>
+<span id="search-stat" class="muted">共 {{ len .RegularPages }} 条</span>
+</div>
+
+{{- range sort .RegularPages "Lastmod" "desc" -}}
+  {{ partial "item_line.html" . }}
+{{- end -}}
+
+{{ partial "search_script.html" . }}
+</body>
+</html>
