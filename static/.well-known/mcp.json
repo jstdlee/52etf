@@ -25,7 +25,7 @@
     "per_page_markdown_pattern": "https://52etf.net/{section}/{slug}/index.md"
   },
   "rate_limits": {
-    "recommended_strategy": "Prefer fetching /llms-full.txt or /index.json in a single HTTP GET request instead of crawling all 25 pages concurrently.",
+    "recommended_strategy": "Prefer fetching /llms-full.txt or /index.json in a single HTTP GET request instead of crawling all 29 pages concurrently.",
     "max_requests_per_second": 2,
     "single_request_full_corpus": "https://52etf.net/llms-full.txt"
   },

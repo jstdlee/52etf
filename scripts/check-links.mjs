@@ -177,7 +177,7 @@ async function main() {
   ];
 
   if (deadLinks.length === 0) {
-    lines.push('NONE — All 50 external URLs verified reachable (0 broken/404 links).');
+    lines.push(`NONE — All ${checkedSummary.length} external URLs verified reachable (0 broken/404 links).`);
   } else {
     for (const d of deadLinks) {
       lines.push(`- [BROKEN:${d.status}] ${d.file} (${d.field}) -> ${d.url} | Title: ${d.title}`);

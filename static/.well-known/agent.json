@@ -50,7 +50,7 @@
     {
       "id": "crypto-onchain-derivatives",
       "name": "Crypto On-Chain & Derivatives Positioning Cache (05-crypto)",
-      "description": "Hyperliquid whale Vault/OI/funding, BTC AHR999/MVRV-Z/Puell/RHODL, CME BTC/ETH COT, Deribit DVOL/options skew, USDT/USDC/ETH/SOL DeFi TVL."
+      "description": "Hyperliquid whale Vault/OI/funding, BTC AHR999, RHODL Ratio, MVRV Z-Score & CBBI/BTI composite, URPD UTXO cost distribution, On-Chain Fee Z-Score, Spot ETF flows, ETH/BTC, Stablecoin liquidity."
     },
     {
       "id": "equity-tsla-spcx-valuation",

@@ -5,9 +5,9 @@
 
 ## Agent & MCP Discovery Endpoints
 - [Home Markdown Twin]({{ "index.md" | absURL }}): Token-efficient Markdown representation of the home directory (`Accept: text/markdown` compatible)
-- [Full Corpus in 1 Request (llms-full.txt)]({{ "llms-full.txt" | absURL }}): Complete inline Markdown text, cached tables, formulas, and verified URLs for all 25 indicators
+- [Full Corpus in 1 Request (llms-full.txt)]({{ "llms-full.txt" | absURL }}): Complete inline Markdown text, cached tables, formulas, and verified URLs for all {{ len (where .Site.RegularPages "Section" "!=" "") }} indicators
 - [Structured Search & Agent JSON Index (index.json)]({{ "index.json" | absURL }}): Full JSON array with metadata, tags, lastmod, staleness (>180d), and raw markdown body
-- [404 & Stale (>6m) Link Verification Report (404.txt)]({{ "404.txt" | absURL }}): CI-verified HTTP reachability log for all 50 external links + stale indicator list
+- [404 & Stale (>6m) Link Verification Report (404.txt)]({{ "404.txt" | absURL }}): CI-verified HTTP reachability log for all {{ mul (len (where .Site.RegularPages "Section" "!=" "")) 2 }} external links + stale indicator list
 - [MCP Service Discovery (.well-known/mcp.json)]({{ ".well-known/mcp.json" | absURL }}): Model Context Protocol & WebMCP tool definitions
 - [A2A Agent Card (.well-known/agent.json)]({{ ".well-known/agent.json" | absURL }}): Agent-to-Agent capability & rate-limit manifest
 - [Sitemap XML]({{ "sitemap.xml" | absURL }}): Full XML sitemap for search engines and crawlers
