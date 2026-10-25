@@ -3,11 +3,12 @@
 # Reference Date: 2026-10-25 (Asia/Singapore UTC+8)
 # Total Content Pages Scanned: 25
 # Total External URLs Checked: 50
-# Broken / Unreachable URLs (404/5xx/DNS/Timeout): 0
+# Broken / Unreachable URLs (404/5xx/DNS/Timeout): 2
 # Stale Indicators (> 180 days unupdated): 3
 
 ## [SECTION 1] BROKEN_OR_UNREACHABLE_LINKS (HTTP 404 / 410 / 5xx / TIMEOUT)
-NONE — All 50 external URLs verified reachable (0 broken/404 links).
+- [BROKEN:ENOTFOUND] content/07-tools-strategy/webmcp-404-agent-calibration-spec.md (ext_url) -> https://jstdlee.github.io/52etf/404.txt | Title: 52etf.net 自动化链接核实 (check-links.mjs -> 404.txt) 与 Cloudflare Agent / WebMCP 接口规范
+- [BROKEN:ENOTFOUND] content/07-tools-strategy/webmcp-404-agent-calibration-spec.md (backup_url) -> https://jstdlee.github.io/52etf/llms.txt | Title: 52etf.net 自动化链接核实 (check-links.mjs -> 404.txt) 与 Cloudflare Agent / WebMCP 接口规范
 
 ## [SECTION 2] STALE_INDICATORS_OVER_6_MONTHS (> 180 DAYS UNUPDATED — HIGHLIGHTED RED ON SITE)
 - [STALE:256d | lastmod:2026-02-11] content/01-macro-money/global-shipping-bdi-scfi-index.md | 全球贸易航运先行指标：波罗的海干散货指数(BDI)与集装箱运价指数(SCFI) | ext_url: https://www.sse.net.cn/index/singleIndex?indexType=scfi
@@ -79,5 +80,5 @@ OK   [HTTP_200      ] content/07-tools-strategy/legacy-fomc-dotplot-json-endpoin
 OK   [HTTP_200      ] content/07-tools-strategy/legacy-fomc-dotplot-json-endpoint.md (backup_url) -> https://www.federalreserve.gov/monetarypolicy/openmarket.htm
 OK   [HTTP_200      ] content/07-tools-strategy/rebalance-var-risk-management-formulas.md (ext_url) -> https://www.portfoliovisualizer.com/asset-correlations
 OK   [HTTP_200      ] content/07-tools-strategy/rebalance-var-risk-management-formulas.md (backup_url) -> https://www.portfoliovisualizer.com/monte-carlo-simulation
-OK   [HTTP_200      ] content/07-tools-strategy/webmcp-404-agent-calibration-spec.md (ext_url) -> https://jstdlee.github.io/52etf/404.txt
-OK   [HTTP_200      ] content/07-tools-strategy/webmcp-404-agent-calibration-spec.md (backup_url) -> https://jstdlee.github.io/52etf/llms.txt
+FAIL [ENOTFOUND     ] content/07-tools-strategy/webmcp-404-agent-calibration-spec.md (ext_url) -> https://jstdlee.github.io/52etf/404.txt
+FAIL [ENOTFOUND     ] content/07-tools-strategy/webmcp-404-agent-calibration-spec.md (backup_url) -> https://jstdlee.github.io/52etf/llms.txt
