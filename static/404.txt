@@ -3,19 +3,46 @@
 # Reference Date: 2026-10-25 (Asia/Singapore UTC+8)
 # Total Content Pages Scanned: 25
 # Total External URLs Checked: 50
-# Broken / Unreachable URLs (404/5xx/DNS/Timeout): 9
+# Broken / Unreachable URLs (404/5xx/DNS/Timeout): 36
 # Stale Indicators (> 180 days unupdated): 3
 
 ## [SECTION 1] BROKEN_OR_UNREACHABLE_LINKS (HTTP 404 / 410 / 5xx / TIMEOUT)
-- [BROKEN:AbortError] content/01-macro-money/cn-us-money-supply-m1-m2-walcl.md (backup_url) -> http://www.pbc.gov.cn/diaochatongjisi/116219/116319/index.html | Title: 中美货币存量对比：中国M1/M2/社融存量 vs 美国M2/美联储资产负债表(WALCL)
+- [BROKEN:ETIMEDOUT] content/01-macro-money/cn-us-money-supply-m1-m2-walcl.md (backup_url) -> http://www.pbc.gov.cn/diaochatongjisi/116219/116319/index.html | Title: 中美货币存量对比：中国M1/M2/社融存量 vs 美国M2/美联储资产负债表(WALCL)
+- [BROKEN:AbortError] content/02-commodities-cpi/global-energy-index-crude-natgas-gsci.md (backup_url) -> https://fred.stlouisfed.org/series/DCOILWTICO | Title: 全球能源指数追踪：WTI/Brent原油、Henry Hub天然气与S&P GSCI能源指数
+- [BROKEN:AbortError] content/03-bonds-fx/cn-short-term-debt-ratio-monitor.md (backup_url) -> https://yield.chinabond.com.cn/cbweb-pbc-web/pbc/more | Title: 人民币短期债比例指标监控 (短债余额占比 / 同业存单NCD占比 / DR007)
+- [BROKEN:ETIMEDOUT] content/03-bonds-fx/fx-usdcny-usdcnh-dxy-jpy-carry.md (ext_url) -> https://www.safe.gov.cn/safe/rmbhlzjj/index.html | Title: 外汇监控：USD/CNY中间价、USD/CNH离岸掉期点、美元指数(DXY)与USD/JPY套息指标
+- [BROKEN:AbortError] content/03-bonds-fx/sovereign-bond-yield-curve-cn-us.md (ext_url) -> https://yield.chinabond.com.cn/cbweb-pbc-web/pbc/more | Title: 中美国债收益率曲线与实际利率监控 (CN 2Y/10Y/30Y vs US 2Y/10Y/30Y/TIPS)
 - [BROKEN:AbortError] content/03-bonds-fx/sovereign-bond-yield-curve-cn-us.md (backup_url) -> https://home.treasury.gov/resource-center/data-chart-center/interest-rates/ | Title: 中美国债收益率曲线与实际利率监控 (CN 2Y/10Y/30Y vs US 2Y/10Y/30Y/TIPS)
+- [BROKEN:AbortError] content/04-realestate/cn-70cities-price-rental-yield-lpr.md (ext_url) -> https://www.stats.gov.cn/sj/zxfb/ | Title: 中国70城二手住宅价格指数、30城成交面积与一线城市租售比 vs 房贷利率
 - [BROKEN:AbortError] content/04-realestate/cn-70cities-price-rental-yield-lpr.md (backup_url) -> http://www.pbc.gov.cn/zhengcehuobisi/125207/125213/125440/index.html | Title: 中国70城二手住宅价格指数、30城成交面积与一线城市租售比 vs 房贷利率
 - [BROKEN:AbortError] content/04-realestate/household-loan-vs-18t-bank-credit.md (ext_url) -> http://t.cn/AXh6wnlO | Title: 中国房产是否到底核心观测：居民住户贷款环比增量 vs 18万亿银行信贷规模对比
 - [BROKEN:AbortError] content/04-realestate/household-loan-vs-18t-bank-credit.md (backup_url) -> http://www.pbc.gov.cn/diaochatongjisi/116219/116319/index.html | Title: 中国房产是否到底核心观测：居民住户贷款环比增量 vs 18万亿银行信贷规模对比
+- [BROKEN:AbortError] content/04-realestate/us-realestate-case-shiller-mortgage-sales.md (ext_url) -> https://fred.stlouisfed.org/series/CSUSHPINSA | Title: 美国房地产数据监控：Case-Shiller房价指数、30年期固定按揭利率与成屋/新屋销售
+- [BROKEN:AbortError] content/04-realestate/us-realestate-case-shiller-mortgage-sales.md (backup_url) -> https://fred.stlouisfed.org/series/MORTGAGE30US | Title: 美国房地产数据监控：Case-Shiller房价指数、30年期固定按揭利率与成屋/新屋销售
+- [BROKEN:AbortError] content/05-crypto/ahr999-bitcoin-dca-valuation-index.md (ext_url) -> https://www.coinglass.com/pro/i/ahr999 | Title: AHR999 比特币囤币/定投指数监控与计算公式
+- [BROKEN:AbortError] content/05-crypto/ahr999-bitcoin-dca-valuation-index.md (backup_url) -> https://www.lookintobitcoin.com/charts/mvrv-zscore/ | Title: AHR999 比特币囤币/定投指数监控与计算公式
+- [BROKEN:AbortError] content/05-crypto/crypto-spot-etf-inflow-outflow-btc-eth.md (ext_url) -> https://farside.co.uk/btc/ | Title: 美国现货 BTC / ETH ETF 资金流入流出与机构持仓规模汇总 (IBIT / FBTC / ETHA)
+- [BROKEN:AbortError] content/05-crypto/crypto-spot-etf-inflow-outflow-btc-eth.md (backup_url) -> https://sosovalue.com/assets/etf/us-btc-spot | Title: 美国现货 BTC / ETH ETF 资金流入流出与机构持仓规模汇总 (IBIT / FBTC / ETHA)
+- [BROKEN:AbortError] content/05-crypto/eth-btc-ratio-and-btc-dominance.md (ext_url) -> https://www.tradingview.com/symbols/ETHBTC/ | Title: ETH/BTC 汇率比例历史区间与比特币市值占比 (BTC.D) 周期监控
+- [BROKEN:AbortError] content/05-crypto/eth-btc-ratio-and-btc-dominance.md (backup_url) -> https://www.coingecko.com/en/global-charts | Title: ETH/BTC 汇率比例历史区间与比特币市值占比 (BTC.D) 周期监控
+- [BROKEN:AbortError] content/05-crypto/hyperliquid-onchain-long-short-oi-funding.md (ext_url) -> https://app.hyperliquid.xyz/trade | Title: Hyperliquid 链上多空数据监控：巨鲸多空持仓比、未平仓合约(OI)、资金费率与HLP金库敞口
+- [BROKEN:AbortError] content/05-crypto/hyperliquid-onchain-long-short-oi-funding.md (backup_url) -> https://www.coinglass.com/hyperliquid | Title: Hyperliquid 链上多空数据监控：巨鲸多空持仓比、未平仓合约(OI)、资金费率与HLP金库敞口
+- [BROKEN:AbortError] content/05-crypto/stablecoin-mcap-onchain-liquidity.md (ext_url) -> https://defillama.com/stablecoins | Title: 全网稳定币总市值 (USDT / USDC / USDe) 与链上法币存量监控
+- [BROKEN:AbortError] content/05-crypto/stablecoin-mcap-onchain-liquidity.md (backup_url) -> https://www.coingecko.com/en/categories/stablecoins | Title: 全网稳定币总市值 (USDT / USDC / USDe) 与链上法币存量监控
+- [BROKEN:AbortError] content/06-equity-tsla-spcx/cn-hk-us-broad-index-pbpe-history.md (ext_url) -> https://www.csindex.com.cn/#/indices/family/list?index_series=1 | Title: A股、港股与美股宽基指数 PB / PE 历史十年分位与股债性价比(ERP)
+- [BROKEN:AbortError] content/06-equity-tsla-spcx/cn-hk-us-broad-index-pbpe-history.md (backup_url) -> https://shillerdata.com/ | Title: A股、港股与美股宽基指数 PB / PE 历史十年分位与股债性价比(ERP)
+- [BROKEN:AbortError] content/06-equity-tsla-spcx/fund-managers-cn-qreport-and-us-13f.md (ext_url) -> https://www.sec.gov/edgar/searchedgar/companysearch | Title: 中美基金经理季报持仓穿透：公募主动权益Top10集中度与海外SEC 13F机构增减
 - [BROKEN:AbortError] content/06-equity-tsla-spcx/fund-managers-cn-qreport-and-us-13f.md (backup_url) -> http://eid.csrc.gov.cn/fund/disclose/index.html | Title: 中美基金经理季报持仓穿透：公募主动权益Top10集中度与海外SEC 13F机构增减
-- [BROKEN:UNABLE_TO_VERIFY_LEAF_SIGNATURE] content/06-equity-tsla-spcx/sw-sector-pb-roe-archive.md (ext_url) -> https://www.swsresearch.com/institute_sw/allIndex/releasedIndex | Title: 申万一级行业 PB-ROE 历史分位归档数据 (2016-2026)
+- [BROKEN:AbortError] content/06-equity-tsla-spcx/sw-sector-pb-roe-archive.md (ext_url) -> https://www.swsresearch.com/institute_sw/allIndex/releasedIndex | Title: 申万一级行业 PB-ROE 历史分位归档数据 (2016-2026)
+- [BROKEN:AbortError] content/06-equity-tsla-spcx/sw-sector-pb-roe-archive.md (backup_url) -> https://www.csindex.com.cn/ | Title: 申万一级行业 PB-ROE 历史分位归档数据 (2016-2026)
 - [BROKEN:AbortError] content/06-equity-tsla-spcx/tesla-tsla-spacex-spcx-long-short-positioning.md (ext_url) -> https://www.nasdaq.com/market-activity/stocks/tsla/short-interest | Title: Tesla (TSLA) 与 SpaceX (SPCX/DXYZ) 多空持仓数据、期权Put/Call比与空头敞口
-- [BROKEN:HTTP_404] content/07-tools-strategy/webmcp-404-agent-calibration-spec.md (ext_url) -> https://jstdlee.github.io/52etf/404.txt | Title: 52etf.net 自动化链接核实 (check-links.mjs -> 404.txt) 与 WebMCP / Agent 接口规范
+- [BROKEN:AbortError] content/06-equity-tsla-spcx/tesla-tsla-spacex-spcx-long-short-positioning.md (backup_url) -> https://www.sec.gov/edgar/browse/?CIK=0001318605 | Title: Tesla (TSLA) 与 SpaceX (SPCX/DXYZ) 多空持仓数据、期权Put/Call比与空头敞口
+- [BROKEN:AbortError] content/07-tools-strategy/legacy-fomc-dotplot-json-endpoint.md (ext_url) -> https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm | Title: FOMC点阵图历史中位值提取脚本与归档连接 (旧版端点样本)
+- [BROKEN:AbortError] content/07-tools-strategy/legacy-fomc-dotplot-json-endpoint.md (backup_url) -> https://fred.stlouisfed.org/series/FEDTARMD | Title: FOMC点阵图历史中位值提取脚本与归档连接 (旧版端点样本)
+- [BROKEN:AbortError] content/07-tools-strategy/rebalance-var-risk-management-formulas.md (ext_url) -> https://www.portfoliovisualizer.com/asset-correlations | Title: 跨资产再平衡阈值矩阵、最大回撤(MaxDD)与参数法VaR/流动性覆盖率(LCR)数学公式
+- [BROKEN:AbortError] content/07-tools-strategy/rebalance-var-risk-management-formulas.md (backup_url) -> https://www.portfoliovisualizer.com/monte-carlo-simulation | Title: 跨资产再平衡阈值矩阵、最大回撤(MaxDD)与参数法VaR/流动性覆盖率(LCR)数学公式
+- [BROKEN:AbortError] content/07-tools-strategy/webmcp-404-agent-calibration-spec.md (ext_url) -> https://jstdlee.github.io/52etf/404.txt | Title: 52etf.net 自动化链接核实 (check-links.mjs -> 404.txt) 与 WebMCP / Agent 接口规范
+- [BROKEN:AbortError] content/07-tools-strategy/webmcp-404-agent-calibration-spec.md (backup_url) -> https://jstdlee.github.io/52etf/llms.txt | Title: 52etf.net 自动化链接核实 (check-links.mjs -> 404.txt) 与 WebMCP / Agent 接口规范
 
 ## [SECTION 2] STALE_INDICATORS_OVER_6_MONTHS (> 180 DAYS UNUPDATED — HIGHLIGHTED RED ON SITE)
 - [STALE:256d | lastmod:2026-02-11] content/01-macro-money/global-shipping-bdi-scfi-index.md | 全球贸易航运先行指标：波罗的海干散货指数(BDI)与集装箱运价指数(SCFI) | ext_url: https://www.sse.net.cn/index/singleIndex?indexType=scfi
@@ -26,50 +53,50 @@
 OK   [HTTP_403      ] content/01-macro-money/cn-us-cpi-pce-ppi-inflation.md (ext_url) -> https://www.bls.gov/cpi/
 OK   [HTTP_200      ] content/01-macro-money/cn-us-cpi-pce-ppi-inflation.md (backup_url) -> https://www.stats.gov.cn/sj/zxfb/
 OK   [HTTP_200      ] content/01-macro-money/cn-us-money-supply-m1-m2-walcl.md (ext_url) -> https://fred.stlouisfed.org/series/WM2NS
-FAIL [AbortError    ] content/01-macro-money/cn-us-money-supply-m1-m2-walcl.md (backup_url) -> http://www.pbc.gov.cn/diaochatongjisi/116219/116319/index.html
+FAIL [ETIMEDOUT     ] content/01-macro-money/cn-us-money-supply-m1-m2-walcl.md (backup_url) -> http://www.pbc.gov.cn/diaochatongjisi/116219/116319/index.html
 OK   [HTTP_200      ] content/01-macro-money/global-shipping-bdi-scfi-index.md (ext_url) -> https://www.sse.net.cn/index/singleIndex?indexType=scfi
-OK   [HTTP_202      ] content/01-macro-money/global-shipping-bdi-scfi-index.md (backup_url) -> https://tradingeconomics.com/commodity/baltic
+OK   [HTTP_200      ] content/01-macro-money/global-shipping-bdi-scfi-index.md (backup_url) -> https://tradingeconomics.com/commodity/baltic
 OK   [HTTP_200      ] content/01-macro-money/pmi-ism-nfp-macro-cycle.md (ext_url) -> https://fred.stlouisfed.org/series/PAYEMS
 OK   [HTTP_403      ] content/01-macro-money/pmi-ism-nfp-macro-cycle.md (backup_url) -> https://data.stats.gov.cn/easyquery.htm?cn=A01
 OK   [HTTP_200      ] content/02-commodities-cpi/crb-gold-copper-ratio-inflation-expectation.md (ext_url) -> https://fred.stlouisfed.org/series/T10YIE
 OK   [HTTP_200      ] content/02-commodities-cpi/crb-gold-copper-ratio-inflation-expectation.md (backup_url) -> https://fred.stlouisfed.org/series/PCOPPUSDM
 OK   [HTTP_200      ] content/02-commodities-cpi/global-energy-index-crude-natgas-gsci.md (ext_url) -> https://www.eia.gov/petroleum/supply/weekly/
-OK   [HTTP_200      ] content/02-commodities-cpi/global-energy-index-crude-natgas-gsci.md (backup_url) -> https://fred.stlouisfed.org/series/DCOILWTICO
+FAIL [AbortError    ] content/02-commodities-cpi/global-energy-index-crude-natgas-gsci.md (backup_url) -> https://fred.stlouisfed.org/series/DCOILWTICO
 OK   [HTTP_200      ] content/02-commodities-cpi/global-grain-food-price-index-fao-cbot.md (ext_url) -> https://www.fao.org/worldfoodsituation/foodpricesindex/en/
 OK   [HTTP_403      ] content/02-commodities-cpi/global-grain-food-price-index-fao-cbot.md (backup_url) -> https://www.usda.gov/oce/commodity/wasde
 OK   [HTTP_200      ] content/03-bonds-fx/cn-short-term-debt-ratio-monitor.md (ext_url) -> https://www.chinamoney.com.cn/chinese/index.html
-OK   [HTTP_200      ] content/03-bonds-fx/cn-short-term-debt-ratio-monitor.md (backup_url) -> https://yield.chinabond.com.cn/cbweb-pbc-web/pbc/more
-OK   [HTTP_200      ] content/03-bonds-fx/fx-usdcny-usdcnh-dxy-jpy-carry.md (ext_url) -> https://www.safe.gov.cn/safe/rmbhlzjj/index.html
+FAIL [AbortError    ] content/03-bonds-fx/cn-short-term-debt-ratio-monitor.md (backup_url) -> https://yield.chinabond.com.cn/cbweb-pbc-web/pbc/more
+FAIL [ETIMEDOUT     ] content/03-bonds-fx/fx-usdcny-usdcnh-dxy-jpy-carry.md (ext_url) -> https://www.safe.gov.cn/safe/rmbhlzjj/index.html
 OK   [HTTP_200      ] content/03-bonds-fx/fx-usdcny-usdcnh-dxy-jpy-carry.md (backup_url) -> https://fred.stlouisfed.org/series/DTWEXBGS
-OK   [HTTP_200      ] content/03-bonds-fx/sovereign-bond-yield-curve-cn-us.md (ext_url) -> https://yield.chinabond.com.cn/cbweb-pbc-web/pbc/more
+FAIL [AbortError    ] content/03-bonds-fx/sovereign-bond-yield-curve-cn-us.md (ext_url) -> https://yield.chinabond.com.cn/cbweb-pbc-web/pbc/more
 FAIL [AbortError    ] content/03-bonds-fx/sovereign-bond-yield-curve-cn-us.md (backup_url) -> https://home.treasury.gov/resource-center/data-chart-center/interest-rates/
-OK   [HTTP_200      ] content/04-realestate/cn-70cities-price-rental-yield-lpr.md (ext_url) -> https://www.stats.gov.cn/sj/zxfb/
+FAIL [AbortError    ] content/04-realestate/cn-70cities-price-rental-yield-lpr.md (ext_url) -> https://www.stats.gov.cn/sj/zxfb/
 FAIL [AbortError    ] content/04-realestate/cn-70cities-price-rental-yield-lpr.md (backup_url) -> http://www.pbc.gov.cn/zhengcehuobisi/125207/125213/125440/index.html
 FAIL [AbortError    ] content/04-realestate/household-loan-vs-18t-bank-credit.md (ext_url) -> http://t.cn/AXh6wnlO
 FAIL [AbortError    ] content/04-realestate/household-loan-vs-18t-bank-credit.md (backup_url) -> http://www.pbc.gov.cn/diaochatongjisi/116219/116319/index.html
-OK   [HTTP_200      ] content/04-realestate/us-realestate-case-shiller-mortgage-sales.md (ext_url) -> https://fred.stlouisfed.org/series/CSUSHPINSA
-OK   [HTTP_200      ] content/04-realestate/us-realestate-case-shiller-mortgage-sales.md (backup_url) -> https://fred.stlouisfed.org/series/MORTGAGE30US
-OK   [HTTP_200      ] content/05-crypto/ahr999-bitcoin-dca-valuation-index.md (ext_url) -> https://www.coinglass.com/pro/i/ahr999
-OK   [HTTP_200      ] content/05-crypto/ahr999-bitcoin-dca-valuation-index.md (backup_url) -> https://www.lookintobitcoin.com/charts/mvrv-zscore/
-OK   [HTTP_200      ] content/05-crypto/crypto-spot-etf-inflow-outflow-btc-eth.md (ext_url) -> https://farside.co.uk/btc/
-OK   [HTTP_403      ] content/05-crypto/crypto-spot-etf-inflow-outflow-btc-eth.md (backup_url) -> https://sosovalue.com/assets/etf/us-btc-spot
-OK   [HTTP_200      ] content/05-crypto/eth-btc-ratio-and-btc-dominance.md (ext_url) -> https://www.tradingview.com/symbols/ETHBTC/
-OK   [HTTP_200      ] content/05-crypto/eth-btc-ratio-and-btc-dominance.md (backup_url) -> https://www.coingecko.com/en/global-charts
-OK   [HTTP_200      ] content/05-crypto/hyperliquid-onchain-long-short-oi-funding.md (ext_url) -> https://app.hyperliquid.xyz/trade
-OK   [HTTP_200      ] content/05-crypto/hyperliquid-onchain-long-short-oi-funding.md (backup_url) -> https://www.coinglass.com/hyperliquid
-OK   [HTTP_200      ] content/05-crypto/stablecoin-mcap-onchain-liquidity.md (ext_url) -> https://defillama.com/stablecoins
-OK   [HTTP_200      ] content/05-crypto/stablecoin-mcap-onchain-liquidity.md (backup_url) -> https://www.coingecko.com/en/categories/stablecoins
-OK   [HTTP_200      ] content/06-equity-tsla-spcx/cn-hk-us-broad-index-pbpe-history.md (ext_url) -> https://www.csindex.com.cn/#/indices/family/list?index_series=1
-OK   [HTTP_200      ] content/06-equity-tsla-spcx/cn-hk-us-broad-index-pbpe-history.md (backup_url) -> https://shillerdata.com/
-OK   [HTTP_403      ] content/06-equity-tsla-spcx/fund-managers-cn-qreport-and-us-13f.md (ext_url) -> https://www.sec.gov/edgar/searchedgar/companysearch
+FAIL [AbortError    ] content/04-realestate/us-realestate-case-shiller-mortgage-sales.md (ext_url) -> https://fred.stlouisfed.org/series/CSUSHPINSA
+FAIL [AbortError    ] content/04-realestate/us-realestate-case-shiller-mortgage-sales.md (backup_url) -> https://fred.stlouisfed.org/series/MORTGAGE30US
+FAIL [AbortError    ] content/05-crypto/ahr999-bitcoin-dca-valuation-index.md (ext_url) -> https://www.coinglass.com/pro/i/ahr999
+FAIL [AbortError    ] content/05-crypto/ahr999-bitcoin-dca-valuation-index.md (backup_url) -> https://www.lookintobitcoin.com/charts/mvrv-zscore/
+FAIL [AbortError    ] content/05-crypto/crypto-spot-etf-inflow-outflow-btc-eth.md (ext_url) -> https://farside.co.uk/btc/
+FAIL [AbortError    ] content/05-crypto/crypto-spot-etf-inflow-outflow-btc-eth.md (backup_url) -> https://sosovalue.com/assets/etf/us-btc-spot
+FAIL [AbortError    ] content/05-crypto/eth-btc-ratio-and-btc-dominance.md (ext_url) -> https://www.tradingview.com/symbols/ETHBTC/
+FAIL [AbortError    ] content/05-crypto/eth-btc-ratio-and-btc-dominance.md (backup_url) -> https://www.coingecko.com/en/global-charts
+FAIL [AbortError    ] content/05-crypto/hyperliquid-onchain-long-short-oi-funding.md (ext_url) -> https://app.hyperliquid.xyz/trade
+FAIL [AbortError    ] content/05-crypto/hyperliquid-onchain-long-short-oi-funding.md (backup_url) -> https://www.coinglass.com/hyperliquid
+FAIL [AbortError    ] content/05-crypto/stablecoin-mcap-onchain-liquidity.md (ext_url) -> https://defillama.com/stablecoins
+FAIL [AbortError    ] content/05-crypto/stablecoin-mcap-onchain-liquidity.md (backup_url) -> https://www.coingecko.com/en/categories/stablecoins
+FAIL [AbortError    ] content/06-equity-tsla-spcx/cn-hk-us-broad-index-pbpe-history.md (ext_url) -> https://www.csindex.com.cn/#/indices/family/list?index_series=1
+FAIL [AbortError    ] content/06-equity-tsla-spcx/cn-hk-us-broad-index-pbpe-history.md (backup_url) -> https://shillerdata.com/
+FAIL [AbortError    ] content/06-equity-tsla-spcx/fund-managers-cn-qreport-and-us-13f.md (ext_url) -> https://www.sec.gov/edgar/searchedgar/companysearch
 FAIL [AbortError    ] content/06-equity-tsla-spcx/fund-managers-cn-qreport-and-us-13f.md (backup_url) -> http://eid.csrc.gov.cn/fund/disclose/index.html
-FAIL [UNABLE_TO_VERIFY_LEAF_SIGNATURE] content/06-equity-tsla-spcx/sw-sector-pb-roe-archive.md (ext_url) -> https://www.swsresearch.com/institute_sw/allIndex/releasedIndex
-OK   [HTTP_200      ] content/06-equity-tsla-spcx/sw-sector-pb-roe-archive.md (backup_url) -> https://www.csindex.com.cn/
+FAIL [AbortError    ] content/06-equity-tsla-spcx/sw-sector-pb-roe-archive.md (ext_url) -> https://www.swsresearch.com/institute_sw/allIndex/releasedIndex
+FAIL [AbortError    ] content/06-equity-tsla-spcx/sw-sector-pb-roe-archive.md (backup_url) -> https://www.csindex.com.cn/
 FAIL [AbortError    ] content/06-equity-tsla-spcx/tesla-tsla-spacex-spcx-long-short-positioning.md (ext_url) -> https://www.nasdaq.com/market-activity/stocks/tsla/short-interest
-OK   [HTTP_403      ] content/06-equity-tsla-spcx/tesla-tsla-spacex-spcx-long-short-positioning.md (backup_url) -> https://www.sec.gov/edgar/browse/?CIK=0001318605
-OK   [HTTP_200      ] content/07-tools-strategy/legacy-fomc-dotplot-json-endpoint.md (ext_url) -> https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm
-OK   [HTTP_200      ] content/07-tools-strategy/legacy-fomc-dotplot-json-endpoint.md (backup_url) -> https://fred.stlouisfed.org/series/FEDTARMD
-OK   [HTTP_200      ] content/07-tools-strategy/rebalance-var-risk-management-formulas.md (ext_url) -> https://www.portfoliovisualizer.com/asset-correlations
-OK   [HTTP_200      ] content/07-tools-strategy/rebalance-var-risk-management-formulas.md (backup_url) -> https://www.portfoliovisualizer.com/monte-carlo-simulation
-FAIL [HTTP_404      ] content/07-tools-strategy/webmcp-404-agent-calibration-spec.md (ext_url) -> https://jstdlee.github.io/52etf/404.txt
-OK   [HTTP_200      ] content/07-tools-strategy/webmcp-404-agent-calibration-spec.md (backup_url) -> https://jstdlee.github.io/52etf/llms.txt
+FAIL [AbortError    ] content/06-equity-tsla-spcx/tesla-tsla-spacex-spcx-long-short-positioning.md (backup_url) -> https://www.sec.gov/edgar/browse/?CIK=0001318605
+FAIL [AbortError    ] content/07-tools-strategy/legacy-fomc-dotplot-json-endpoint.md (ext_url) -> https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm
+FAIL [AbortError    ] content/07-tools-strategy/legacy-fomc-dotplot-json-endpoint.md (backup_url) -> https://fred.stlouisfed.org/series/FEDTARMD
+FAIL [AbortError    ] content/07-tools-strategy/rebalance-var-risk-management-formulas.md (ext_url) -> https://www.portfoliovisualizer.com/asset-correlations
+FAIL [AbortError    ] content/07-tools-strategy/rebalance-var-risk-management-formulas.md (backup_url) -> https://www.portfoliovisualizer.com/monte-carlo-simulation
+FAIL [AbortError    ] content/07-tools-strategy/webmcp-404-agent-calibration-spec.md (ext_url) -> https://jstdlee.github.io/52etf/404.txt
+FAIL [AbortError    ] content/07-tools-strategy/webmcp-404-agent-calibration-spec.md (backup_url) -> https://jstdlee.github.io/52etf/llms.txt
