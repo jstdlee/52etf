@@ -4,8 +4,8 @@ date: 2026-10-25T10:12:00+08:00
 lastmod: 2026-10-25T10:12:00+08:00
 tags: ["美国房地产", "Case-Shiller", "30Y按揭利率", "成屋销售", "房地产"]
 keywords: ["美国房地产", "Case-Shiller", "30Y按揭利率", "成屋销售", "房地产"]
-ext_url: "https://fred.stlouisfed.org/series/CSUSHPINSA"
-backup_url: "https://fred.stlouisfed.org/series/MORTGAGE30US"
+ext_url: "https://tradingeconomics.com/united-states/case-shiller-home-price-index"
+backup_url: "https://www.freddiemac.com/pmms"
 summary: "S&P Case-Shiller全美房价指数 325.6 (+4.2% YoY) | 30Y固定按揭利率 6.54% | 美国成屋销售年化 384万套 (库存 4.3个月) | 新屋开工 135.4万套"
 ---
 

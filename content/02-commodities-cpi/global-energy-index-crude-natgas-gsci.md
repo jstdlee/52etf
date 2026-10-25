@@ -5,7 +5,7 @@ lastmod: 2026-10-25T10:25:00+08:00
 tags: ["能源指数", "原油", "天然气", "GSCI", "EIA库存", "大宗商品"]
 keywords: ["能源指数", "原油", "天然气", "GSCI", "EIA库存", "大宗商品"]
 ext_url: "https://www.eia.gov/petroleum/supply/weekly/"
-backup_url: "https://fred.stlouisfed.org/series/DCOILWTICO"
+backup_url: "https://www.eia.gov/dnav/pet/pet_pri_spt_s1_d.htm"
 summary: "WTI原油 $71.40/bbl | Brent原油 $75.20/bbl | Henry Hub天然气 $2.45/MMBtu | EIA商业原油库存 4.21亿桶"
 ---
 

@@ -4,8 +4,8 @@ date: 2026-10-25T10:16:00+08:00
 lastmod: 2026-10-25T10:16:00+08:00
 tags: ["外汇", "USDCNY", "USDCNH", "美元指数DXY", "日元套息", "掉期点"]
 keywords: ["外汇", "USDCNY", "USDCNH", "美元指数DXY", "日元套息", "掉期点"]
-ext_url: "https://fred.stlouisfed.org/series/DEXCHUS"
-backup_url: "https://fred.stlouisfed.org/series/DTWEXBGS"
+ext_url: "https://www.tradingview.com/symbols/USDCNH/"
+backup_url: "https://www.tradingview.com/symbols/TVC-DXY/"
 summary: "USD/CNY中间价 7.1095 | USD/CNH离岸 7.1260 | 1Y掉期点 -1,920 pips | 广义美元指数 123.8 | USD/JPY 151.8"
 ---
 

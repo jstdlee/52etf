@@ -4,7 +4,7 @@ date: 2026-10-25T10:30:00+08:00
 lastmod: 2026-10-25T10:30:00+08:00
 tags: ["货币存量", "M2", "M1", "美联储资产负债表", "中国宏观", "美国宏观"]
 keywords: ["货币存量", "M2", "M1", "美联储资产负债表", "中国宏观", "美国宏观"]
-ext_url: "https://fred.stlouisfed.org/series/WM2NS"
+ext_url: "https://www.federalreserve.gov/releases/h6/current/"
 backup_url: "https://data.eastmoney.com/cjsj/hbgyl.html"
 summary: "中国M2存量 309.48万亿RMB (+6.8% YoY) | 中国M1 66.21万亿RMB (-3.1% YoY) | 美国M2 $21.24T (+2.4% YoY) | 美联储总资产WALCL $7.04T"
 ---

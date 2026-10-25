@@ -4,7 +4,7 @@ date: 2026-10-22T16:00:00+08:00
 lastmod: 2026-10-22T16:00:00+08:00
 tags: ["PMI", "非农就业", "经济指数", "中国宏观", "美国宏观"]
 keywords: ["PMI", "非农就业", "经济指数", "中国宏观", "美国宏观"]
-ext_url: "https://fred.stlouisfed.org/series/PAYEMS"
+ext_url: "https://www.bls.gov/ces/"
 backup_url: "https://data.eastmoney.com/cjsj/pmi.html"
 summary: "中国官方制造业PMI 49.8 | 财新制造业PMI 50.3 | 美国ISM制造业PMI 47.2 / 服务业 54.9 | 美国失业率 4.1%"
 ---

@@ -5,7 +5,7 @@ lastmod: 2026-10-25T10:15:00+08:00
 tags: ["房产见底观测", "居民住户贷款", "银行信贷18万亿", "房地产", "央行信贷收支表"]
 keywords: ["房产见底观测", "居民住户贷款", "银行信贷18万亿", "房地产", "央行信贷收支表"]
 ext_url: "https://data.eastmoney.com/cjsj/xzxd.html"
-backup_url: "https://fred.stlouisfed.org/series/CRDQCNAPABIS"
+backup_url: "https://data.eastmoney.com/cjsj/shrzgm.html"
 summary: "过去火爆年代居民住户贷款月增5000亿至超10000亿RMB | 今年过去8个月累积增量未达3000亿RMB | 当前银行信贷年增量约18万亿RMB(未流向住户贷款)"
 ---
 

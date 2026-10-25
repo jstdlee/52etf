@@ -5,7 +5,7 @@ lastmod: 2026-10-25T10:22:00+08:00
 tags: ["粮食指数", "FAO食品指数", "大豆", "玉米", "小麦", "大宗商品"]
 keywords: ["粮食指数", "FAO食品指数", "大豆", "玉米", "小麦", "大宗商品"]
 ext_url: "https://www.fao.org/worldfoodsituation/foodpricesindex/en/"
-backup_url: "https://fred.stlouisfed.org/series/PALLFNFINDEXM"
+backup_url: "https://www.usda.gov/oce/commodity/wasde"
 summary: "联合国FAO食品价格指数 124.4 (+2.1% YoY) | FAO谷物指数 113.5 | CBOT大豆 992美分/蒲 | CBOT玉米 415美分/蒲 | CBOT小麦 572美分/蒲"
 ---
 

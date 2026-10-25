@@ -4,8 +4,8 @@ date: 2026-10-23T18:00:00+08:00
 lastmod: 2026-10-23T18:00:00+08:00
 tags: ["大宗商品", "铜金比", "金油比", "CRB指数", "CPI", "能源指数"]
 keywords: ["大宗商品", "铜金比", "金油比", "CRB指数", "CPI", "能源指数"]
-ext_url: "https://fred.stlouisfed.org/series/T10YIE"
-backup_url: "https://fred.stlouisfed.org/series/PCOPPUSDM"
+ext_url: "https://www.tradingview.com/symbols/TVC-GOLD/"
+backup_url: "https://tradingeconomics.com/commodities"
 summary: "伦敦金 $2,735/oz | LME铜 $9,620/吨 | 金油比 38.3x | 铜金比 3.52 (千分比) | 美国10Y盈亏平衡通胀率 2.31%"
 ---
 
