@@ -64,7 +64,7 @@ jobs:
           HUGO_CACHEDIR: ${{ runner.temp }}/hugo_cache
           HUGO_ENVIRONMENT: production
         run: |
-          hugo --minify --baseURL "${{ steps.pages.outputs.base_url }}/"
+          BASE_URL="${{ steps.pages.outputs.base_url }}"; BASE_URL="${BASE_URL/#http:\/\/52etf.net/https://52etf.net}"; hugo --minify --baseURL "${BASE_URL}/"
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
