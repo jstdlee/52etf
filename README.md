@@ -1,55 +1,33 @@
-# 52etf.net — GitHub Repo + Hugo 极简财经指标与连接汇集站
+# 52etf.net — 宏观经济、能源粮食、国债外汇、房地产、Crypto与权益多空指标缓存仓库
 
-> **内容原则**：仅做客观数据缓存、关键字标记与有效连接汇集，**不做任何主观解读，不透露任何个人资产或持仓信息**。
+- **在线站点 (GitHub Pages)**：<https://jstdlee.github.io/52etf/>
+- **异常与超期链接巡检报告 (`404.txt`)**：<https://jstdlee.github.io/52etf/404.txt>
+- **LLMs 纯文本全量索引 (`llms.txt`)**：<https://jstdlee.github.io/52etf/llms.txt>
+- **JSON 结构化索引 (`index.json`)**：<https://jstdlee.github.io/52etf/index.json>
+- **页面视觉风格**：对齐 <https://jstdlee.github.io/blog/> 极简等宽字体 (`ui-monospace`, `72ch`) 风格。
 
-## 1. GitHub Repo 目录即页面（Hugo 架构）
-
-仓库中 `content/` 目录下的每个文件夹对应一个频道，文件夹内的每一个 `.md`（或 `.txt`）文件对应一条指标连接及其独立页面：
-
-```text
-52etf-hugo/
-├── hugo.toml                                  # Hugo 站点配置 (输出 HTML + Sitemap + JSON搜索索引 + llms.txt)
-├── content/
-│   ├── 01-daily-52etf/                        # 每日自动化指标、政策原文、标的公告、再平衡与风险管理模板
-│   │   ├── _index.md
-│   │   ├── etf-daily-flow-breadth.md          # -> 生成独立页 /01-daily-52etf/etf-daily-flow-breadth/
-│   │   └── ...
-│   ├── 02-macro/                              # 中美与 Crypto 宏观指标
-│   ├── 03-bonds-fx/                           # 国债收益率、外汇、人民币短期债比例监控
-│   ├── 04-valuation-pbpe/                     # PB/PE 历史分位数据
-│   ├── 05-fund-managers/                      # 基金经理季报与 13F 客观数据分析页
-│   ├── 06-realestate-watch/                   # 房产见底指标观测 Dashboard
-│   │   └── household-loan-vs-18t-bank-credit.md  # -> 含 http://t.cn/AXh6wnlO 与住户贷款/18万亿总信贷对比独立页
-│   └── 07-tools-strategy/                     # 策略数学工具与 WebMCP 接口页
-├── layouts/                                   # 极简宽度限制模板 (按更新时间倒序 + >6个月自动标红 + 模糊搜索)
-├── static/.well-known/mcp.json                # WebMCP 发现清单
-└── scripts/calibrate_links.py                 # 外部 Agent 链接自动校准与超期巡检脚本
-```
-
-## 2. 如何新增或更新一条指标
-
-只需在 GitHub 网页端或通过外部 Agent 在对应目录下新建/修改 `content/<目录>/<文件名>.md`：
-
-```markdown
 ---
-title: "房产是否到底指标观测：居民住户贷款环比增量 vs 18万亿银行信贷规模对比"
-date: 2026-10-24T21:00:00+08:00
-lastmod: 2026-10-24T21:00:00+08:00
-keywords: ["房产见底观测", "居民住户贷款", "银行信贷18万亿", "t.cn/AXh6wnlO"]
-ext_url: "http://t.cn/AXh6wnlO"
-backup_url: "http://www.pbc.gov.cn/diaochatongjisi/116219/116319/index.html"
-summary: "过去火爆年代居民住户贷款环比月增5000亿至超10000亿RMB | 今年过去8个月累积增量未达3000亿RMB | 当前银行信贷年增量约18万亿RMB(没有去向居民住户贷款项目中)"
+
+## 1. 核心设计原则与纪律
+
+1. **纯客观数据与有效连接呈现**：不做任何行情评论与主观解读，不提供任何投资建议，**绝不透露或暗示任何个人资产与持仓信息**。
+2. **剔除日频噪音，聚焦中观/宏观周期与结构数据**：
+   - `01-macro-money`：中美货币存量对比（中国 M1/M2/社融存量 vs 美国 M2/美联储资产负债表 `WALCL`）、中美 CPI/PCE/PPI 通胀指数、制造业/服务业 PMI 与非农周期、全球航运指数 (BDI/SCFI)。
+   - `02-commodities-cpi`：全球能源指数（WTI/Brent 原油、Henry Hub 天然气、S&P GSCI 能源指数、EIA 库存）、全球粮食指数（联合国 FAO 食品与谷物价格指数、CBOT 大豆/玉米/小麦、USDA 供需库存消费比）、金油比/铜金比与盈亏平衡通胀率。
+   - `03-bonds-fx`：人民币短期债比例监控（1Y 以内短债占比、同业存单 NCD 占比、DR007）、中美国债收益率曲线与 TIPS 实际利率、外汇（USD/CNY 中间价、USD/CNH 离岸掉期点、美元指数 DXY、日元套息指标）。
+   - `04-realestate`：中国房产是否见底核心观测（**居民住户贷款环比增量 vs 18 万亿银行信贷规模对比**：过去火爆年代月增 5000 亿~1 万亿+ RMB vs 过去 8 个月累积未达 3000 亿 RMB，主链接 `http://t.cn/AXh6wnlO`）、70 城房价与一线城市租售比 vs 5Y LPR、美国房地产数据（Case-Shiller 房价指数、30Y 固定房贷利率、成屋销售与新屋开工）。
+   - `05-crypto`：**Crypto 专题** —— **Hyperliquid 链上多空数据**（巨鲸多空比、全网未平仓合约 OI、资金费率、HLP 金库敞口）、**美国现货 BTC/ETH ETF 资金流入流出**（IBIT/FBTC/ETHA 累计净流入与持仓占比）、**ETH/BTC 汇率比例与 BTC.D 市占率**、**AHR999 囤币/定投指数**、全网稳定币总市值（USDT/USDC）。
+   - `06-equity-tsla-spcx`：**Tesla (`TSLA`) 与 SpaceX (`SPCX`/`DXYZ`) 多空持仓数据**（TSLA 空头持仓比例 Short Interest、期权 Put/Call OI 比、SpaceX 一级半估值与公开载体折溢价）、A/港/美宽基指数 PB/PE 十年分位、中美基金经理季报与 SEC 13F 机构持仓穿透。
+   - `07-tools-strategy`：再平衡阈值矩阵、VaR/最大回撤公式、WebMCP 与 `404.txt` 自动巡检说明。
+3. **超 6 个月未更新自动标红 (`> 180 days`)**：
+   - 构建期与前端运行时双重校验 `Lastmod`，超过 180 天未更新的条目整行以红色 (`.stale`) 高亮显示。
+4. **CI 自动巡检链接并写入 `404.txt`**：
+   - 每次 GitHub Actions 构建或定时任务运行 `node scripts/check-links.mjs`，自动扫描 `content/**/*.md` 的全部主/备链接并检测超期条目，将结果输出并提交至仓库根目录 `404.txt` 及静态产物 `/404.txt`，供外部 Agent 一键读取校准。
+
 ---
-这里写点击标题进入后的【独立页面】详细内容、历史统计序列或公式说明...
-```
 
-Push 到 GitHub 后，Hugo 自动完成：
-1. 按 `lastmod` 倒序排列所有目录与条目；
-2. 自动计算距今是否超过 180 天（6 个月），超过则全行标红 `[超6个月未更新]`；
-3. 生成首页列表、目录分页面、每条指标的独立页面、全站模糊搜索索引 `/index.json`、搜索引擎 `/sitemap.xml` 以及 Agent 专用 `/llms.txt`。
+## 2. 外部 Agent 校准工作流
 
-## 3. 外部 Agent 驱动链接校准协议
-
-外部 Agent 定时读取 `/index.json`（或运行 `python3 scripts/calibrate_links.py`）：
-- 筛选 `is_stale_6m == true`（超过 6 个月未更新）或 `ext_url` 不可达的 `.md` 文件；
-- 校验 `ext_url` 与 `backup_url` 状态，更新对应 `content/<dir>/<slug>.md` 中的 `summary`、`ext_url` 与 `lastmod` 字段并提交 PR / Commit，网站自动刷新。
+1. 读取 `https://jstdlee.github.io/52etf/404.txt` 获取当前失效/超时连接（`SECTION 1`）与超过 6 个月未更新的指标文件（`SECTION 2`）。
+2. 修改对应 `content/<section>/<slug>.md` 的 `ext_url`、`backup_url`、`summary` 与 `lastmod` 字段。
+3. 运行 `node scripts/check-links.mjs && hugo --minify` 并提交推送到 `main` 分支。

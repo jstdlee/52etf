@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.LanguageCode | default "zh-cn" }}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ if not .IsHome }}{{ .Title }} · {{ end }}{{ .Site.Title }}</title>
+  <meta name="description" content="{{ with .Params.summary }}{{ . }}{{ else }}{{ with .Description }}{{ . }}{{ else }}{{ .Site.Params.description }}{{ end }}{{ end }}">
+  {{ with .Params.tags }}<meta name="keywords" content="{{ delimit . ", " }}">{{ end }}
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="{{ .Permalink }}">
+  <link rel="sitemap" type="application/xml" title="Sitemap" href="{{ "sitemap.xml" | relURL }}">
+  <link rel="alternate" type="text/plain" title="LLMs Plaintext Index" href="{{ "llms.txt" | relURL }}">
+  <link rel="alternate" type="text/plain" title="404 & Stale Link Report" href="{{ "404.txt" | relURL }}">
+  <link rel="alternate" type="application/json" title="Search & Agent JSON Index" href="{{ "index.json" | relURL }}">
+  <link rel="service-desc" type="application/json" href="{{ ".well-known/mcp.json" | relURL }}">
+  {{- with .OutputFormats.Get "RSS" }}
+  <link rel="alternate" type="application/rss+xml" title="{{ $.Site.Title }}" href="{{ .RelPermalink }}">
+  {{- end }}
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "{{ if .IsPage }}TechArticle{{ else }}DataCatalog{{ end }}",
+    "name": {{ .Title | jsonify | safeJS }},
+    "url": {{ .Permalink | jsonify | safeJS }},
+    "dateModified": "{{ .Lastmod.Format "2006-01-02T15:04:05+08:00" }}",
+    "description": {{ with .Params.summary }}{{ . | jsonify | safeJS }}{{ else }}{{ .Site.Params.description | jsonify | safeJS }}{{ end }}
+  }
+  </script>
+  <style>
+    :root {
+      --bg: #ffffff;
+      --fg: #111111;
+      --muted: #767676;
+      --faint: #e5e5e5;
+      --code-bg: #f6f6f6;
+      --link-body: #333333;
+      --stale: #cc0000;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #0d0d0d;
+        --fg: #e5e5e5;
+        --muted: #888888;
+        --faint: #262626;
+        --code-bg: #161616;
+        --link-body: #cccccc;
+        --stale: #ff5555;
+      }
+    }
+    * { box-sizing: border-box; }
+    body {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Liberation Mono", "Courier New", monospace;
+      font-size: 15px;
+      line-height: 1.75;
+      color: var(--fg);
+      background: var(--bg);
+      max-width: 72ch;
+      margin: 4ch auto 8ch;
+      padding: 0 2ch;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+      word-break: break-word;
+    }
+    a {
+      color: var(--fg);
+      text-decoration: none;
+      transition: color 0.12s ease, opacity 0.12s ease;
+    }
+    a:hover {
+      opacity: 0.65;
+    }
+    nav {
+      margin-bottom: 2.2em;
+      padding-bottom: 0.8em;
+      border-bottom: 1px solid var(--faint);
+      font-size: 0.92em;
+    }
+    nav a {
+      color: var(--muted);
+      margin-right: 1.8ch;
+    }
+    nav a:hover, nav a.active {
+      color: var(--fg);
+      opacity: 1;
+    }
+    .search-bar {
+      margin: 0 0 1.8em;
+      display: flex;
+      align-items: center;
+      gap: 1ch;
+    }
+    .search-bar input[type="search"] {
+      flex: 1;
+      font-family: inherit;
+      font-size: 0.9em;
+      color: var(--fg);
+      background: var(--bg);
+      border: 0;
+      border-bottom: 1px solid var(--faint);
+      padding: 0.35em 0;
+      outline: none;
+    }
+    .search-bar input[type="search"]:focus {
+      border-bottom-color: var(--fg);
+    }
+    .post-list, .tag-list {
+      list-style: none;
+      padding: 0;
+      margin: 0.5em 0 2em;
+    }
+    .post-list li, .tag-list li {
+      margin: 0.55em 0;
+      line-height: 1.6;
+    }
+    .date, .meta, .count {
+      color: var(--muted);
+      font-size: 0.85em;
+      font-variant-numeric: tabular-nums;
+    }
+    .date {
+      margin-right: 0.8ch;
+    }
+    .meta {
+      margin: 0.2em 0 2em;
+    }
+    .summary-inline {
+      color: var(--muted);
+      font-size: 0.88em;
+      margin-left: 0.6ch;
+    }
+    .ext-link {
+      font-size: 0.78em;
+      color: var(--muted);
+      margin-left: 0.6ch;
+      border-bottom: 1px dashed var(--faint);
+      white-space: nowrap;
+    }
+    .ext-link:hover {
+      color: var(--fg);
+      border-bottom-color: var(--muted);
+      opacity: 1;
+    }
+    .tag {
+      font-size: 0.78em;
+      color: var(--muted);
+      margin-left: 0.6ch;
+      white-space: nowrap;
+      cursor: pointer;
+    }
+    .tag-list .tag {
+      font-size: 0.92em;
+      color: var(--fg);
+      margin-left: 0;
+    }
+    .tag:hover {
+      color: var(--fg);
+      opacity: 1;
+    }
+    .stale, .stale > a, .stale .date, .stale .summary-inline {
+      color: var(--stale) !important;
+    }
+    .taxonomy-title {
+      font-size: 1.05em;
+      font-weight: 600;
+      color: var(--fg);
+      margin: 1.6em 0 0.8em;
+    }
+    article h1 {
+      font-size: 1.25em;
+      font-weight: 600;
+      line-height: 1.4;
+      margin: 0 0 0.3em;
+    }
+    article h2 {
+      font-size: 1.08em;
+      font-weight: 600;
+      margin: 2em 0 0.6em;
+    }
+    article h3, article h4 {
+      font-size: 1em;
+      font-weight: 600;
+      margin: 1.5em 0 0.5em;
+    }
+    article p {
+      margin: 1em 0;
+    }
+    article a {
+      color: var(--link-body);
+      border-bottom: 1px dashed var(--faint);
+    }
+    article a:hover {
+      color: var(--fg);
+      border-bottom-color: var(--muted);
+      opacity: 1;
+    }
+    article .meta a.tag {
+      border-bottom: none;
+      color: var(--muted);
+    }
+    article .meta a.tag:hover {
+      color: var(--fg);
+    }
+    article ul, article ol {
+      padding-left: 2.2ch;
+      margin: 0.8em 0;
+    }
+    article ul {
+      list-style: disc;
+    }
+    article ol {
+      list-style: decimal;
+    }
+    article li {
+      margin: 0.3em 0;
+    }
+    pre {
+      background: var(--code-bg);
+      padding: 1em 1.5ch;
+      overflow-x: auto;
+      margin: 1.2em 0;
+      font-size: 0.9em;
+      line-height: 1.55;
+    }
+    code {
+      font-family: inherit;
+    }
+    :not(pre) > code {
+      background: var(--code-bg);
+      padding: 0.15em 0.4ch;
+      font-size: 0.9em;
+    }
+    blockquote {
+      margin: 1.2em 0;
+      padding-left: 2ch;
+      border-left: 2px solid var(--faint);
+      color: var(--muted);
+    }
+    hr {
+      border: 0;
+      border-top: 1px solid var(--faint);
+      margin: 2em 0;
+    }
+  </style>
+</head>
+<body>
+<nav>
+  <a href="{{ $.Site.Home.RelPermalink }}">index</a>
+  <a href="{{ "tags/" | relURL }}">tags</a>
+  <a href="{{ "05-crypto/" | relURL }}">crypto</a>
+  <a href="{{ "04-realestate/" | relURL }}">realestate</a>
+  <a href="{{ "404.txt" | relURL }}">404.txt</a>
+  <a href="{{ "llms.txt" | relURL }}">llms.txt</a>
+  <a href="{{ "sitemap.xml" | relURL }}">sitemap</a>
+  {{- with .Site.Home.OutputFormats.Get "RSS" }}
+  <a href="{{ .RelPermalink }}">rss</a>
+  {{- end }}
+</nav>
+<main>
+{{- block "main" . }}{{- end }}
+</main>
+{{ partial "search_script.html" . }}
+</body>
+</html>

@@ -1,57 +1,30 @@
-<!DOCTYPE html>
-<html lang="zh-CN">
-<head>
-{{ partial "head.html" . }}
-</head>
-<body>
-{{- $refUnix := (time "2026-10-24T21:30:00+08:00").Unix -}}
+{{ define "main" }}
+{{- $refUnix := (time "2026-10-25T10:35:00+08:00").Unix -}}
 {{- $allPages := where .Site.RegularPages "Section" "!=" "" -}}
 {{- $sortedPages := sort $allPages "Lastmod" "desc" -}}
 
-<div class="line"><b>52etf.net</b> 常用经济指标与连接汇集 (仅内容与连接呈现 不做任何解读与资产透露)</div>
-<div class="line muted">更新: 2026-10-24 UTC+8 | 按更新时间倒序 | 超6个月未更新标红 | <a href="{{ "sitemap.xml" | relURL }}">sitemap.xml</a> | <a href="{{ "llms.txt" | relURL }}">llms.txt</a> | <a href="{{ "index.json" | relURL }}">index.json</a> | <a href="{{ ".well-known/mcp.json" | relURL }}">mcp.json</a></div>
-
-<div class="sec">模糊搜索</div>
-<div class="line">
-<input id="q" type="search" placeholder="输入关键字模糊搜索 (如: 住户贷款 18万亿 / 短债 / pbpe / 基金经理 / 超6个月)..." oninput="runSearch()">
-<a href="javascript:void(0)" onclick="clearSearch()">[清除]</a>
-<span id="search-stat" class="muted">共 {{ len $sortedPages }} 条</span>
-</div>
-<div class="line muted">
-常用标记:
-<span class="kw" onclick="setKw('#房产见底观测')">#房产见底观测</span>
-<span class="kw" onclick="setKw('#居民住户贷款')">#居民住户贷款</span>
-<span class="kw" onclick="setKw('#人民币短期债比例')">#人民币短期债比例</span>
-<span class="kw" onclick="setKw('#国债收益率')">#国债收益率</span>
-<span class="kw" onclick="setKw('#外汇')">#外汇</span>
-<span class="kw" onclick="setKw('#PBPE')">#PBPE</span>
-<span class="kw" onclick="setKw('#基金经理')">#基金经理</span>
-<span class="kw" onclick="setKw('#中国宏观')">#中国宏观</span>
-<span class="kw" onclick="setKw('#美国宏观')">#美国宏观</span>
-<span class="kw" onclick="setKw('#Crypto宏观')">#Crypto宏观</span>
-<span class="kw" onclick="setKw('#52etf')">#52etf</span>
-<span class="kw stale" onclick="setKw('超6个月未更新')">[只看超6个月未更新标红项]</span>
+<div class="search-bar">
+  <input id="q" type="search" placeholder="模糊搜索 标题 / #关键字 / 货币存量 / Hyperliquid / AHR999 / TSLA / 粮食 / 能源 / 住户贷款..." oninput="runSearch()">
+  <span id="search-stat" class="count">{{ len $sortedPages }}</span>
 </div>
 
-<div class="sec">目录分类 (对应 GitHub Repo content/&lt;目录&gt;/&lt;文件&gt;.md)</div>
-{{- range sort .Site.Sections "Lastmod" "desc" -}}
+<p class="taxonomy-title">sections</p>
+<ul class="tag-list">
+{{- range sort .Site.Sections "Section" "asc" }}
   {{- $secStale := 0 -}}
   {{- range .RegularPages -}}
     {{- if gt (div (sub $refUnix .Lastmod.Unix) 86400) 180 -}}
       {{- $secStale = add $secStale 1 -}}
     {{- end -}}
   {{- end -}}
-<div class="line">{{ .Lastmod.Format "2006-01-02" }} <a href="{{ .RelPermalink }}">{{ .Section }}/</a> {{ .Title }} ({{ len .RegularPages }}篇){{ if gt $secStale 0 }} <span class="stale">[含{{ $secStale }}项超6个月未更新]</span>{{ end }}</div>
-{{- end -}}
+  <li><span class="date">{{ .Lastmod.Format "2006-01-02" }}</span><a class="tag" href="{{ .RelPermalink }}">{{ .Title }}</a> <span class="count">{{ len .RegularPages }}</span>{{ if gt $secStale 0 }} <span class="tag stale">[{{ $secStale }} stale]</span>{{ end }}</li>
+{{- end }}
+</ul>
 
-<div class="sec">重点观测置顶</div>
-<div class="line">2026-10-24 <a href="{{ "06-realestate-watch/household-loan-vs-18t-bank-credit/" | relURL }}">房产是否到底的指标观测 (独立页)</a> : 过去房地产经济较为火爆年代居民住户贷款环比月增可达5000亿至超10000亿人民币 | 今年过去8个月累积增量未达3000亿人民币 | 当前银行信贷增量每年约18万亿人民币规模(没有去向居民住户贷款项目中) <a class="ext" href="http://t.cn/AXh6wnlO" target="_blank" rel="noopener">[外链:http://t.cn/AXh6wnlO]</a> <span class="kw" onclick="setKw('#房产见底观测')">#房产见底观测</span> <span class="kw" onclick="setKw('#居民住户贷款')">#居民住户贷款</span></div>
-
-<div class="sec">全部条目 (点击标题打开独立页面 / 点击[外链]直达数据源 / 点击#标记过滤)</div>
-{{- range $sortedPages -}}
-  {{ partial "item_line.html" . }}
-{{- end -}}
-
-{{ partial "search_script.html" . }}
-</body>
-</html>
+<p class="taxonomy-title">indicators</p>
+<ul class="post-list">
+{{- range $sortedPages }}
+  {{ partial "item_li.html" . }}
+{{- end }}
+</ul>
+{{ end }}

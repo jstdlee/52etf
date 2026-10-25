@@ -1,7 +1,0 @@
-{{- $refUnix := (time "2026-10-24T21:30:00+08:00").Unix -}}
-{{- $ageDays := div (sub $refUnix .Lastmod.Unix) 86400 -}}
-{{- $isStale := gt $ageDays 180 -}}
-{{- $kws := delimit (.Params.keywords | default slice) " " -}}
-<div class="line item-row{{ if $isStale }} stale{{ end }}" data-search="{{ lower (printf "%s %s %s %s %s %s" .Title (.Params.summary | default "") $kws (.Params.ext_url | default "") .Section (cond $isStale "超6个月未更新 stale" "ok")) }}">
-{{ .Lastmod.Format "2006-01-02" }} <a href="{{ .RelPermalink }}">{{ .Title }}</a> : {{ .Params.summary }}{{ with .Params.ext_url }} <a class="ext" href="{{ . }}" target="_blank" rel="noopener">[外链]</a>{{ end }}{{ with .Params.backup_url }} <a class="ext" href="{{ . }}" target="_blank" rel="noopener">[备链]</a>{{ end }}{{ range .Params.keywords }} <span class="kw" onclick="setKw('#{{ . }}')">#{{ . }}</span>{{ end }}{{ if $isStale }} <b>[超6个月未更新:{{ $ageDays }}天]</b>{{ end }}
-</div>

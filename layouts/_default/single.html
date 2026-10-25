@@ -1,25 +1,20 @@
-<!DOCTYPE html>
-<html lang="zh-CN">
-<head>
-{{ partial "head.html" . }}
-</head>
-<body>
-{{- $refUnix := (time "2026-10-24T21:30:00+08:00").Unix -}}
+{{ define "main" }}
+{{- $refUnix := (time "2026-10-25T10:35:00+08:00").Unix -}}
 {{- $ageDays := div (sub $refUnix .Lastmod.Unix) 86400 -}}
 {{- $isStale := gt $ageDays 180 -}}
-
-<div class="line"><a href="{{ .CurrentSection.RelPermalink }}">../ 返回 {{ .Section }}/</a> | <a href="{{ "" | relURL }}">返回 52etf.net 首页</a></div>
-
-<div class="sec{{ if $isStale }} stale{{ end }}">{{ .Title }}{{ if $isStale }} [超6个月未更新: {{ $ageDays }}天]{{ end }}</div>
-<div class="line muted">更新时间: {{ .Lastmod.Format "2006-01-02 15:04" }} UTC+8 | 对应仓库文件: content/{{ .File.Path }}</div>
-<div class="line">关键字标记:{{ range .Params.keywords }} <a class="kw" href="{{ "" | relURL }}?q={{ . }}">#{{ . }}</a>{{ end }}</div>
-{{ with .Params.ext_url }}<div class="line">主数据源链接: <a href="{{ . }}" target="_blank" rel="noopener">{{ . }}</a></div>{{ end }}
-{{ with .Params.backup_url }}<div class="line">备用校准链接: <a href="{{ . }}" target="_blank" rel="noopener">{{ . }}</a></div>{{ end }}
-<div class="line">核心缓存摘要: {{ .Params.summary }}</div>
-
-<div class="sec">独立页面正文内容 (仅客观数据与连接呈现 不做任何解读与资产透露)</div>
-<div class="content-body">
-{{ .Content }}
-</div>
-</body>
-</html>
+<article>
+  <h1{{ if $isStale }} class="stale"{{ end }}>{{ .Title }}{{ if $isStale }} [超6个月未更新: {{ $ageDays }}d]{{ end }}</h1>
+  <p class="meta">
+    <span class="date">{{ .Lastmod.Format "2006-01-02" }}</span>
+    <a class="tag" href="{{ .CurrentSection.RelPermalink }}">{{ .Section }}/</a>
+    {{- with .Params.tags }}{{- range . }}<a class="tag" href="{{ (printf "tags/%s/" (. | urlize)) | relURL }}">#{{ . }}</a>{{- end }}{{- end }}
+  </p>
+  <blockquote>
+    <div><strong>缓存摘要</strong>：{{ .Params.summary }}</div>
+    {{ with .Params.ext_url }}<div><strong>主数据源链接</strong>：<a href="{{ . }}" target="_blank" rel="noopener">{{ . }}</a></div>{{ end }}
+    {{ with .Params.backup_url }}<div><strong>备用校准链接</strong>：<a href="{{ . }}" target="_blank" rel="noopener">{{ . }}</a></div>{{ end }}
+    <div><strong>GitHub Repo 文件</strong>：<code>content/{{ .File.Path }}</code></div>
+  </blockquote>
+  {{ .Content }}
+</article>
+{{ end }}

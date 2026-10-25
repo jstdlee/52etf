@@ -1,14 +1,18 @@
 baseURL = "https://jstdlee.github.io/52etf/"
-languageCode = "zh-CN"
+languageCode = "zh-cn"
 title = "52etf.net"
 timeZone = "Asia/Singapore"
+relativeURLs = false
+canonifyURLs = false
 enableRobotsTXT = false
-disableKinds = ["taxonomy", "term"]
 
 [params]
   description = "52etf.net 常用经济指标缓存、有效连接汇总与WebMCP站点 (仅内容与连接呈现 不做任何解读与资产透露)"
   staleDaysLimit = 180
-  refDate = "2026-10-24"
+  refDate = "2026-10-25"
+
+[taxonomies]
+  tag = "tags"
 
 [mediaTypes]
   [mediaTypes."text/llms"]
@@ -24,10 +28,12 @@ disableKinds = ["taxonomy", "term"]
 [outputs]
   home = ["HTML", "JSON", "LLMS", "RSS"]
   section = ["HTML", "RSS"]
+  taxonomy = ["HTML"]
+  term = ["HTML"]
   page = ["HTML"]
 
 [sitemap]
-  changefreq = "daily"
+  changefreq = "weekly"
   filename = "sitemap.xml"
   priority = 0.8
 
@@ -35,3 +41,6 @@ disableKinds = ["taxonomy", "term"]
   [markup.goldmark]
     [markup.goldmark.renderer]
       unsafe = true
+  [markup.highlight]
+    noClasses = true
+    style = "bw"

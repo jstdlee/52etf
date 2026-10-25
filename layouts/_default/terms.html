@@ -1,0 +1,12 @@
+{{ define "main" }}
+<p class="taxonomy-title">tags</p>
+{{- if gt (len .Data.Terms) 0 }}
+<ul class="tag-list">
+{{- range .Data.Terms.ByCount }}
+  <li><a class="tag" href="{{ .Page.RelPermalink }}">#{{ .Page.Title }}</a> <span class="count">{{ .Count }}</span></li>
+{{- end }}
+</ul>
+{{- else }}
+<p>no tags</p>
+{{- end }}
+{{ end }}

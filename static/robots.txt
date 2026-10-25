@@ -1,10 +1,8 @@
-# 52etf.net — SEO & Cloudflare Agent Policy
-# Content-Signal: search=yes, ai-input=yes, ai-train=no
 User-agent: *
 Allow: /
-Allow: /llms.txt
-Allow: /index.json
-Allow: /.well-known/mcp.json
-Crawl-delay: 5
 
-Sitemap: https://52etf.net/sitemap.xml
+Sitemap: https://jstdlee.github.io/52etf/sitemap.xml
+# LLMs & WebMCP Endpoints:
+# https://jstdlee.github.io/52etf/404.txt
+# https://jstdlee.github.io/52etf/llms.txt
+# https://jstdlee.github.io/52etf/index.json

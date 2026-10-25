@@ -1,64 +1,53 @@
 <script>
-function fuzzyMatch(text, query) {
-  var q = query.trim().toLowerCase();
-  if (!q) return true;
-  var tokens = q.split(/\s+/);
-  for (var i = 0; i < tokens.length; i++) {
-    var t = tokens[i].replace(/^#/, '');
-    if (!t) continue;
-    if (text.indexOf(t) !== -1) continue;
-    var ti = 0;
-    for (var ci = 0; ci < text.length && ti < t.length; ci++) {
-      if (text[ci] === t[ti]) ti++;
+(function(){
+  const STALE_DAYS_LIMIT = {{ .Site.Params.staleDaysLimit | default 180 }};
+  const REF_UNIX = Math.floor(new Date("2026-10-25T10:35:00+08:00").getTime() / 1000);
+  const nowUnix = Math.max(REF_UNIX, Math.floor(Date.now() / 1000));
+  document.querySelectorAll('.item-row[data-lastmod]').forEach(el => {
+    const lm = parseInt(el.getAttribute('data-lastmod'), 10);
+    if (!isNaN(lm) && (nowUnix - lm) / 86400 > STALE_DAYS_LIMIT) {
+      el.classList.add('stale');
     }
-    if (ti < t.length) return false;
-  }
-  return true;
-}
-function runSearch() {
-  var input = document.getElementById('q');
-  if (!input) return;
-  var q = input.value || '';
-  var rows = document.querySelectorAll('.item-row');
-  var shown = 0;
-  for (var i = 0; i < rows.length; i++) {
-    var hay = rows[i].getAttribute('data-search') || '';
-    var ok = fuzzyMatch(hay, q);
-    rows[i].style.display = ok ? '' : 'none';
-    if (ok) shown++;
-  }
-  var stat = document.getElementById('search-stat');
-  if (stat) stat.textContent = q.trim() ? ('匹配 ' + shown + ' 条') : ('共 ' + rows.length + ' 条');
-}
-function setKw(kw) {
-  var input = document.getElementById('q');
-  if (!input) return;
-  input.value = kw;
-  runSearch();
-}
-function clearSearch() {
-  var input = document.getElementById('q');
-  if (!input) return;
-  input.value = '';
-  runSearch();
-}
-(function() {
-  try {
-    var params = new URLSearchParams(window.location.search);
-    var qParam = params.get('q');
-    if (qParam) setKw(qParam);
-  } catch (e) {}
+  });
 })();
-if (typeof navigator !== 'undefined' && navigator.modelContext && typeof navigator.modelContext.registerTool === 'function') {
-  try {
-    navigator.modelContext.registerTool({
-      name: 'fuzzy_search_indicators',
-      description: 'Fuzzy search 52etf.net indicators by keyword, title, or cached metric',
-      execute: async function(args) {
-        setKw((args && args.query) || '');
-        return { matched: document.getElementById('search-stat').textContent };
-      }
-    });
-  } catch (e) {}
+
+function fuzzyMatch(text, query) {
+  if (!query) return true;
+  const tokens = query.toLowerCase().trim().split(/\s+/);
+  return tokens.every(tok => {
+    const cleanTok = tok.replace(/^#/, '');
+    if (!cleanTok) return true;
+    if (text.includes(cleanTok)) return true;
+    let ti = 0;
+    for (let qi = 0; qi < cleanTok.length; qi++) {
+      ti = text.indexOf(cleanTok[qi], ti);
+      if (ti === -1) return false;
+      ti++;
+    }
+    return true;
+  });
+}
+
+function setKw(kw) {
+  const input = document.getElementById('q');
+  if (!input) return;
+  input.value = (input.value.trim() === kw) ? '' : kw;
+  runSearch();
+}
+
+function runSearch() {
+  const input = document.getElementById('q');
+  if (!input) return;
+  const q = input.value;
+  const rows = document.querySelectorAll('.item-row');
+  let visible = 0;
+  rows.forEach(r => {
+    const hay = r.getAttribute('data-search') || r.textContent.toLowerCase();
+    const ok = fuzzyMatch(hay, q);
+    r.style.display = ok ? '' : 'none';
+    if (ok) visible++;
+  });
+  const stat = document.getElementById('search-stat');
+  if (stat) stat.textContent = q.trim() ? (visible + '/' + rows.length) : String(rows.length);
 }
 </script>

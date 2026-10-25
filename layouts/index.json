@@ -1,30 +1,31 @@
-{{- $refUnix := (time "2026-10-24T21:30:00+08:00").Unix -}}
-{{- $allPages := sort (where .Site.RegularPages "Section" "!=" "") "Lastmod" "desc" -}}
+{{- $refUnix := (time "2026-10-25T10:35:00+08:00").Unix -}}
 {{- $items := slice -}}
-{{- range $allPages -}}
+{{- range sort (where .Site.RegularPages "Section" "!=" "") "Lastmod" "desc" -}}
   {{- $ageDays := div (sub $refUnix .Lastmod.Unix) 86400 -}}
   {{- $isStale := gt $ageDays 180 -}}
-  {{- $items = $items | append (dict
+  {{- $item := dict
       "title" .Title
       "section" .Section
-      "rel_permalink" .RelPermalink
       "permalink" .Permalink
-      "repo_path" (printf "content/%s" .File.Path)
-      "updated_at" (.Lastmod.Format "2006-01-02 15:04")
+      "rel_permalink" .RelPermalink
+      "lastmod" (.Lastmod.Format "2006-01-02")
       "age_days" $ageDays
-      "is_stale_6m" $isStale
-      "keywords" (.Params.keywords | default slice)
+      "stale_over_6m" $isStale
+      "tags" (.Params.tags | default slice)
       "summary" (.Params.summary | default "")
       "ext_url" (.Params.ext_url | default "")
       "backup_url" (.Params.backup_url | default "")
-      "raw_content" (.Plain | chomp)
-  ) -}}
+      "repo_file" (printf "content/%s" .File.Path)
+  -}}
+  {{- $items = $items | append $item -}}
 {{- end -}}
 {{- dict
-  "site" .Site.Title
-  "generated_at" "2026-10-24T21:30:00+08:00"
-  "policy" "PURE_DATA_AND_LINKS_ONLY_NO_INTERPRETATION_NO_ASSET_DISCLOSURE"
-  "stale_days_limit" 180
-  "total_entries" (len $items)
-  "entries" $items
+    "site" .Site.Title
+    "base_url" .Site.BaseURL
+    "generated_at" "2026-10-25T10:35:00+08:00"
+    "policy" "Content and verified links only. No market commentary. No asset/position disclosure."
+    "stale_threshold_days" 180
+    "broken_and_stale_report_url" ("404.txt" | absURL)
+    "count" (len $items)
+    "items" $items
 | jsonify (dict "indent" "  ") -}}

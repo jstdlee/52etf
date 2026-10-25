@@ -1,0 +1,8 @@
+{{ define "main" }}
+<p class="taxonomy-title">#{{ .Title }}</p>
+<ul class="post-list">
+{{- range sort .Pages "Lastmod" "desc" }}
+  {{ partial "item_li.html" . }}
+{{- end }}
+</ul>
+{{ end }}
