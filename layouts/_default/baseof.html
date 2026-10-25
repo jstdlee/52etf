@@ -48,23 +48,40 @@
       }
     }
     * { box-sizing: border-box; }
+    html {
+      width: 100%;
+      max-width: 100%;
+      overflow-x: hidden;
+    }
     body {
       font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Liberation Mono", "Courier New", monospace;
       font-size: 15px;
       line-height: 1.75;
       color: var(--fg);
       background: var(--bg);
+      width: 100%;
       max-width: 72ch;
       margin: 4ch auto 8ch;
       padding: 0 2ch;
       -webkit-font-smoothing: antialiased;
       text-rendering: optimizeLegibility;
+      overflow-wrap: anywhere;
+      word-wrap: break-word;
+      word-break: break-word;
+    }
+    main, article, blockquote, ul, ol, li, p, h1, h2, h3, h4, div {
+      max-width: 100%;
+      overflow-wrap: anywhere;
+      word-wrap: break-word;
       word-break: break-word;
     }
     a {
       color: var(--fg);
       text-decoration: none;
       transition: color 0.12s ease, opacity 0.12s ease;
+      overflow-wrap: anywhere;
+      word-wrap: break-word;
+      word-break: break-word;
     }
     a:hover {
       opacity: 0.65;
@@ -74,10 +91,14 @@
       padding-bottom: 0.8em;
       border-bottom: 1px solid var(--faint);
       font-size: 0.92em;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.35em 1.8ch;
     }
     nav a {
       color: var(--muted);
-      margin-right: 1.8ch;
+      margin-right: 0;
+      white-space: nowrap;
     }
     nav a:hover, nav a.active {
       color: var(--fg);
@@ -88,9 +109,12 @@
       display: flex;
       align-items: center;
       gap: 1ch;
+      width: 100%;
+      max-width: 100%;
     }
     .search-bar input[type="search"] {
-      flex: 1;
+      flex: 1 1 0%;
+      min-width: 0;
       font-family: inherit;
       font-size: 0.9em;
       color: var(--fg);
@@ -99,41 +123,69 @@
       border-bottom: 1px solid var(--faint);
       padding: 0.35em 0;
       outline: none;
+      text-overflow: ellipsis;
     }
     .search-bar input[type="search"]:focus {
       border-bottom-color: var(--fg);
+    }
+    #search-stat {
+      flex-shrink: 0;
+      white-space: nowrap;
     }
     .post-list, .tag-list {
       list-style: none;
       padding: 0;
       margin: 0.5em 0 2em;
+      width: 100%;
     }
     .post-list li, .tag-list li {
-      margin: 0.55em 0;
-      line-height: 1.6;
+      margin: 0.65em 0;
+      line-height: 1.65;
+      width: 100%;
+      white-space: normal;
+      overflow-wrap: anywhere;
+      word-break: break-word;
+    }
+    .cat-link {
+      font-size: 0.95em;
+      color: var(--fg);
+      white-space: normal;
+      overflow-wrap: anywhere;
+      word-break: break-word;
     }
     .date, .meta, .count {
       color: var(--muted);
       font-size: 0.85em;
       font-variant-numeric: tabular-nums;
     }
+    .date, .count {
+      white-space: nowrap;
+    }
     .date {
-      margin-right: 0.8ch;
+      margin-right: 0.6ch;
     }
     .meta {
       margin: 0.2em 0 2em;
+      line-height: 1.7;
     }
     .summary-inline {
       color: var(--muted);
       font-size: 0.88em;
-      margin-left: 0.6ch;
+      margin-left: 0.3ch;
+      white-space: normal;
+      overflow-wrap: anywhere;
+      word-break: break-word;
     }
     .ext-link {
+      display: inline-block;
+      max-width: 100%;
       font-size: 0.78em;
       color: var(--muted);
-      margin-left: 0.6ch;
+      margin-left: 0.3ch;
       border-bottom: 1px dashed var(--faint);
-      white-space: nowrap;
+      white-space: normal;
+      overflow-wrap: anywhere;
+      word-break: break-word;
     }
     .ext-link:hover {
       color: var(--fg);
@@ -141,10 +193,14 @@
       opacity: 1;
     }
     .tag {
+      display: inline-block;
+      max-width: 100%;
       font-size: 0.78em;
       color: var(--muted);
-      margin-left: 0.6ch;
-      white-space: nowrap;
+      margin-left: 0.3ch;
+      white-space: normal;
+      overflow-wrap: anywhere;
+      word-break: break-word;
       cursor: pointer;
     }
     .tag-list .tag {
@@ -187,6 +243,8 @@
     article a {
       color: var(--link-body);
       border-bottom: 1px dashed var(--faint);
+      overflow-wrap: anywhere;
+      word-break: break-all;
     }
     article a:hover {
       color: var(--fg);
@@ -196,6 +254,7 @@
     article .meta a.tag {
       border-bottom: none;
       color: var(--muted);
+      word-break: break-word;
     }
     article .meta a.tag:hover {
       color: var(--fg);
@@ -216,29 +275,59 @@
     pre {
       background: var(--code-bg);
       padding: 1em 1.5ch;
-      overflow-x: auto;
+      white-space: pre-wrap;
+      overflow-wrap: anywhere;
+      word-wrap: break-word;
+      word-break: break-word;
+      max-width: 100%;
       margin: 1.2em 0;
       font-size: 0.9em;
       line-height: 1.55;
     }
     code {
       font-family: inherit;
+      white-space: pre-wrap;
+      overflow-wrap: anywhere;
+      word-break: break-word;
     }
     :not(pre) > code {
       background: var(--code-bg);
       padding: 0.15em 0.4ch;
       font-size: 0.9em;
     }
+    table {
+      width: 100%;
+      max-width: 100%;
+      border-collapse: collapse;
+      table-layout: fixed;
+      overflow-wrap: anywhere;
+      word-break: break-word;
+    }
+    th, td {
+      padding: 0.35em 0.6ch;
+      border-bottom: 1px solid var(--faint);
+      overflow-wrap: anywhere;
+      word-break: break-word;
+    }
     blockquote {
       margin: 1.2em 0;
       padding-left: 2ch;
       border-left: 2px solid var(--faint);
       color: var(--muted);
+      overflow-wrap: anywhere;
+      word-break: break-word;
     }
     hr {
       border: 0;
       border-top: 1px solid var(--faint);
       margin: 2em 0;
+    }
+    @media (max-width: 480px) {
+      body {
+        margin: 2ch auto 5ch;
+        padding: 0 1.5ch;
+        font-size: 14px;
+      }
     }
   </style>
 </head>

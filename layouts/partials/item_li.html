@@ -1,12 +1,7 @@
-{{- $refUnix := (time "2026-10-25T10:35:00+08:00").Unix -}}
+{{- $refUnix := (time "2026-10-25T12:00:00+08:00").Unix -}}
 {{- $ageDays := div (sub $refUnix .Lastmod.Unix) 86400 -}}
 {{- $isStale := gt $ageDays 180 -}}
 {{- $kws := delimit (.Params.tags | default slice) " " -}}
 <li class="item-row{{ if $isStale }} stale{{ end }}" data-lastmod="{{ .Lastmod.Unix }}" data-search="{{ lower (printf "%s %s %s %s %s %s" .Title (.Params.summary | default "") $kws (.Params.ext_url | default "") .Section (cond $isStale "超6个月未更新 stale" "ok")) }}">
-  <span class="date">{{ .Lastmod.Format "2006-01-02" }}</span><a href="{{ .RelPermalink }}">{{ .Title }}</a>
-  {{- with .Params.summary }}<span class="summary-inline">· {{ . }}</span>{{ end -}}
-  {{- with .Params.ext_url }}<a class="ext-link" href="{{ . }}" target="_blank" rel="noopener">[外链]</a>{{ end -}}
-  {{- with .Params.backup_url }}<a class="ext-link" href="{{ . }}" target="_blank" rel="noopener">[备链]</a>{{ end -}}
-  {{- with .Params.tags }}{{- range . }}<a class="tag" href="{{ (printf "tags/%s/" (. | urlize)) | relURL }}" onclick="if(document.getElementById('q')){setKw('#{{ . }}');return false;}">#{{ . }}</a>{{- end }}{{- end -}}
-  {{- if $isStale }} <span class="tag stale">[超6个月未更新:{{ $ageDays }}d]</span>{{- end -}}
+  <span class="date">{{ .Lastmod.Format "2006-01-02" }}</span> <a href="{{ .RelPermalink }}">{{ .Title }}</a>{{ with .Params.summary }} <span class="summary-inline">· {{ . }}</span>{{ end }}{{ with .Params.ext_url }} <a class="ext-link" href="{{ . }}" target="_blank" rel="noopener">[外链]</a>{{ end }}{{ with .Params.backup_url }} <a class="ext-link" href="{{ . }}" target="_blank" rel="noopener">[备链]</a>{{ end }}{{ with .Params.tags }}{{ range . }} <a class="tag" href="{{ (printf "tags/%s/" (. | urlize)) | relURL }}" onclick="if(document.getElementById('q')){setKw('#{{ . }}');return false;}">#{{ . }}</a>{{ end }}{{ end }}{{ if $isStale }} <span class="tag stale">[超6个月未更新:{{ $ageDays }}d]</span>{{ end }}
 </li>

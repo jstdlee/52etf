@@ -44,3 +44,8 @@ enableRobotsTXT = false
   [markup.highlight]
     noClasses = true
     style = "bw"
+
+[minify]
+  [minify.tdewolff]
+    [minify.tdewolff.html]
+      keepWhitespace = true

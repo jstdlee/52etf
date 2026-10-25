@@ -17,7 +17,7 @@
       {{- $secStale = add $secStale 1 -}}
     {{- end -}}
   {{- end -}}
-  <li><a class="tag" href="{{ .RelPermalink }}">{{ .Title }}</a> <span class="count">{{ len .RegularPages }}</span>{{ if gt $secStale 0 }} <span class="tag stale">[{{ $secStale }} stale]</span>{{ end }}</li>
+  <li><a class="cat-link" href="{{ .RelPermalink }}">{{ .Title }}</a> <span class="count">({{ len .RegularPages }})</span>{{ if gt $secStale 0 }} <span class="tag stale">[{{ $secStale }} stale]</span>{{ end }}</li>
 {{- end }}
 </ul>
 
