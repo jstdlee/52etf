@@ -3,11 +3,22 @@
 # Reference Date: 2026-10-25 (Asia/Singapore UTC+8)
 # Total Content Pages Scanned: 25
 # Total External URLs Checked: 50
-# Broken / Unreachable URLs (404/5xx/DNS/Timeout): 0
+# Broken / Unreachable URLs (404/5xx/DNS/Timeout): 12
 # Stale Indicators (> 180 days unupdated): 3
 
 ## [SECTION 1] BROKEN_OR_UNREACHABLE_LINKS (HTTP 404 / 410 / 5xx / TIMEOUT)
-NONE — All 50 external URLs verified reachable (0 broken/404 links).
+- [BROKEN:AbortError] content/01-macro-money/cn-us-money-supply-m1-m2-walcl.md (ext_url) -> https://fred.stlouisfed.org/series/WM2NS | Title: 中美货币存量对比：中国M1/M2/社融存量 vs 美国M2/美联储资产负债表(WALCL)
+- [BROKEN:AbortError] content/01-macro-money/pmi-ism-nfp-macro-cycle.md (ext_url) -> https://fred.stlouisfed.org/series/PAYEMS | Title: 中美制造业/服务业PMI与美国非农就业(NFP)景气周期序列
+- [BROKEN:AbortError] content/02-commodities-cpi/crb-gold-copper-ratio-inflation-expectation.md (ext_url) -> https://fred.stlouisfed.org/series/T10YIE | Title: CRB大宗商品指数、金油比/铜金比与5Y5Y通胀预期监控
+- [BROKEN:AbortError] content/02-commodities-cpi/crb-gold-copper-ratio-inflation-expectation.md (backup_url) -> https://fred.stlouisfed.org/series/PCOPPUSDM | Title: CRB大宗商品指数、金油比/铜金比与5Y5Y通胀预期监控
+- [BROKEN:AbortError] content/02-commodities-cpi/global-energy-index-crude-natgas-gsci.md (backup_url) -> https://fred.stlouisfed.org/series/DCOILWTICO | Title: 全球能源指数追踪：WTI/Brent原油、Henry Hub天然气与S&P GSCI能源指数
+- [BROKEN:AbortError] content/02-commodities-cpi/global-grain-food-price-index-fao-cbot.md (backup_url) -> https://fred.stlouisfed.org/series/PALLFNFINDEXM | Title: 全球粮食指数与农产品追踪：联合国FAO食品价格指数与CBOT大豆/玉米/小麦
+- [BROKEN:AbortError] content/03-bonds-fx/fx-usdcny-usdcnh-dxy-jpy-carry.md (ext_url) -> https://fred.stlouisfed.org/series/DEXCHUS | Title: 外汇监控：USD/CNY中间价、USD/CNH离岸掉期点、美元指数(DXY)与USD/JPY套息指标
+- [BROKEN:AbortError] content/03-bonds-fx/fx-usdcny-usdcnh-dxy-jpy-carry.md (backup_url) -> https://fred.stlouisfed.org/series/DTWEXBGS | Title: 外汇监控：USD/CNY中间价、USD/CNH离岸掉期点、美元指数(DXY)与USD/JPY套息指标
+- [BROKEN:AbortError] content/04-realestate/household-loan-vs-18t-bank-credit.md (backup_url) -> https://fred.stlouisfed.org/series/CRDQCNAPABIS | Title: 中国房产是否到底核心观测：居民住户贷款环比增量 vs 18万亿银行信贷规模对比
+- [BROKEN:AbortError] content/04-realestate/us-realestate-case-shiller-mortgage-sales.md (ext_url) -> https://fred.stlouisfed.org/series/CSUSHPINSA | Title: 美国房地产数据监控：Case-Shiller房价指数、30年期固定按揭利率与成屋/新屋销售
+- [BROKEN:AbortError] content/04-realestate/us-realestate-case-shiller-mortgage-sales.md (backup_url) -> https://fred.stlouisfed.org/series/MORTGAGE30US | Title: 美国房地产数据监控：Case-Shiller房价指数、30年期固定按揭利率与成屋/新屋销售
+- [BROKEN:AbortError] content/07-tools-strategy/legacy-fomc-dotplot-json-endpoint.md (backup_url) -> https://fred.stlouisfed.org/series/FEDTARMD | Title: FOMC点阵图历史中位值提取脚本与归档连接 (旧版端点样本)
 
 ## [SECTION 2] STALE_INDICATORS_OVER_6_MONTHS (> 180 DAYS UNUPDATED — HIGHLIGHTED RED ON SITE)
 - [STALE:256d | lastmod:2026-02-11] content/01-macro-money/global-shipping-bdi-scfi-index.md | 全球贸易航运先行指标：波罗的海干散货指数(BDI)与集装箱运价指数(SCFI) | ext_url: https://www.sse.net.cn/index/singleIndex?indexType=scfi
@@ -31,32 +42,32 @@ NONE — All 50 external URLs verified reachable (0 broken/404 links).
 14. content/06-equity-tsla-spcx/tesla-tsla-spacex-spcx-long-short-positioning.md (ext_url): https://www.nasdaq.com/market-activity/stocks/tsla/short-interest [Timeout] -> https://www.marketbeat.com/stocks/NASDAQ/TSLA/short-interest/ & https://finviz.com/quote.ashx?t=TSLA [HTTP_200]
 
 ## [SECTION 4] ALL_VERIFIED_URLS_STATUS_LOG
-OK   [HTTP_200      ] content/01-macro-money/cn-us-cpi-pce-ppi-inflation.md (ext_url) -> https://www.bls.gov/cpi/
+OK   [HTTP_403      ] content/01-macro-money/cn-us-cpi-pce-ppi-inflation.md (ext_url) -> https://www.bls.gov/cpi/
 OK   [HTTP_200      ] content/01-macro-money/cn-us-cpi-pce-ppi-inflation.md (backup_url) -> https://data.eastmoney.com/cjsj/cpi.html
-OK   [HTTP_200      ] content/01-macro-money/cn-us-money-supply-m1-m2-walcl.md (ext_url) -> https://fred.stlouisfed.org/series/WM2NS
+FAIL [AbortError    ] content/01-macro-money/cn-us-money-supply-m1-m2-walcl.md (ext_url) -> https://fred.stlouisfed.org/series/WM2NS
 OK   [HTTP_200      ] content/01-macro-money/cn-us-money-supply-m1-m2-walcl.md (backup_url) -> https://data.eastmoney.com/cjsj/hbgyl.html
 OK   [HTTP_200      ] content/01-macro-money/global-shipping-bdi-scfi-index.md (ext_url) -> https://www.sse.net.cn/index/singleIndex?indexType=scfi
-OK   [HTTP_202      ] content/01-macro-money/global-shipping-bdi-scfi-index.md (backup_url) -> https://tradingeconomics.com/commodity/baltic
-OK   [HTTP_200      ] content/01-macro-money/pmi-ism-nfp-macro-cycle.md (ext_url) -> https://fred.stlouisfed.org/series/PAYEMS
+OK   [HTTP_200      ] content/01-macro-money/global-shipping-bdi-scfi-index.md (backup_url) -> https://tradingeconomics.com/commodity/baltic
+FAIL [AbortError    ] content/01-macro-money/pmi-ism-nfp-macro-cycle.md (ext_url) -> https://fred.stlouisfed.org/series/PAYEMS
 OK   [HTTP_200      ] content/01-macro-money/pmi-ism-nfp-macro-cycle.md (backup_url) -> https://data.eastmoney.com/cjsj/pmi.html
-OK   [HTTP_200      ] content/02-commodities-cpi/crb-gold-copper-ratio-inflation-expectation.md (ext_url) -> https://fred.stlouisfed.org/series/T10YIE
-OK   [HTTP_200      ] content/02-commodities-cpi/crb-gold-copper-ratio-inflation-expectation.md (backup_url) -> https://fred.stlouisfed.org/series/PCOPPUSDM
+FAIL [AbortError    ] content/02-commodities-cpi/crb-gold-copper-ratio-inflation-expectation.md (ext_url) -> https://fred.stlouisfed.org/series/T10YIE
+FAIL [AbortError    ] content/02-commodities-cpi/crb-gold-copper-ratio-inflation-expectation.md (backup_url) -> https://fred.stlouisfed.org/series/PCOPPUSDM
 OK   [HTTP_200      ] content/02-commodities-cpi/global-energy-index-crude-natgas-gsci.md (ext_url) -> https://www.eia.gov/petroleum/supply/weekly/
-OK   [HTTP_200      ] content/02-commodities-cpi/global-energy-index-crude-natgas-gsci.md (backup_url) -> https://fred.stlouisfed.org/series/DCOILWTICO
+FAIL [AbortError    ] content/02-commodities-cpi/global-energy-index-crude-natgas-gsci.md (backup_url) -> https://fred.stlouisfed.org/series/DCOILWTICO
 OK   [HTTP_200      ] content/02-commodities-cpi/global-grain-food-price-index-fao-cbot.md (ext_url) -> https://www.fao.org/worldfoodsituation/foodpricesindex/en/
-OK   [HTTP_200      ] content/02-commodities-cpi/global-grain-food-price-index-fao-cbot.md (backup_url) -> https://fred.stlouisfed.org/series/PALLFNFINDEXM
+FAIL [AbortError    ] content/02-commodities-cpi/global-grain-food-price-index-fao-cbot.md (backup_url) -> https://fred.stlouisfed.org/series/PALLFNFINDEXM
 OK   [HTTP_200      ] content/03-bonds-fx/cn-short-term-debt-ratio-monitor.md (ext_url) -> https://www.chinamoney.com.cn/chinese/index.html
 OK   [HTTP_200      ] content/03-bonds-fx/cn-short-term-debt-ratio-monitor.md (backup_url) -> https://data.eastmoney.com/cjsj/zmgzsyl.html
-OK   [HTTP_200      ] content/03-bonds-fx/fx-usdcny-usdcnh-dxy-jpy-carry.md (ext_url) -> https://fred.stlouisfed.org/series/DEXCHUS
-OK   [HTTP_200      ] content/03-bonds-fx/fx-usdcny-usdcnh-dxy-jpy-carry.md (backup_url) -> https://fred.stlouisfed.org/series/DTWEXBGS
+FAIL [AbortError    ] content/03-bonds-fx/fx-usdcny-usdcnh-dxy-jpy-carry.md (ext_url) -> https://fred.stlouisfed.org/series/DEXCHUS
+FAIL [AbortError    ] content/03-bonds-fx/fx-usdcny-usdcnh-dxy-jpy-carry.md (backup_url) -> https://fred.stlouisfed.org/series/DTWEXBGS
 OK   [HTTP_200      ] content/03-bonds-fx/sovereign-bond-yield-curve-cn-us.md (ext_url) -> https://data.eastmoney.com/cjsj/zmgzsyl.html
 OK   [HTTP_200      ] content/03-bonds-fx/sovereign-bond-yield-curve-cn-us.md (backup_url) -> https://fiscaldata.treasury.gov/datasets/average-interest-rates-treasury-securities/
 OK   [HTTP_200      ] content/04-realestate/cn-70cities-price-rental-yield-lpr.md (ext_url) -> https://data.eastmoney.com/cjsj/fczs.html
 OK   [HTTP_200      ] content/04-realestate/cn-70cities-price-rental-yield-lpr.md (backup_url) -> https://data.eastmoney.com/cjsj/globalRateLPR.html
 OK   [HTTP_200      ] content/04-realestate/household-loan-vs-18t-bank-credit.md (ext_url) -> https://data.eastmoney.com/cjsj/xzxd.html
-OK   [HTTP_200      ] content/04-realestate/household-loan-vs-18t-bank-credit.md (backup_url) -> https://fred.stlouisfed.org/series/CRDQCNAPABIS
-OK   [HTTP_200      ] content/04-realestate/us-realestate-case-shiller-mortgage-sales.md (ext_url) -> https://fred.stlouisfed.org/series/CSUSHPINSA
-OK   [HTTP_200      ] content/04-realestate/us-realestate-case-shiller-mortgage-sales.md (backup_url) -> https://fred.stlouisfed.org/series/MORTGAGE30US
+FAIL [AbortError    ] content/04-realestate/household-loan-vs-18t-bank-credit.md (backup_url) -> https://fred.stlouisfed.org/series/CRDQCNAPABIS
+FAIL [AbortError    ] content/04-realestate/us-realestate-case-shiller-mortgage-sales.md (ext_url) -> https://fred.stlouisfed.org/series/CSUSHPINSA
+FAIL [AbortError    ] content/04-realestate/us-realestate-case-shiller-mortgage-sales.md (backup_url) -> https://fred.stlouisfed.org/series/MORTGAGE30US
 OK   [HTTP_200      ] content/05-crypto/ahr999-bitcoin-dca-valuation-index.md (ext_url) -> https://www.coinglass.com/pro/i/ahr999
 OK   [HTTP_200      ] content/05-crypto/ahr999-bitcoin-dca-valuation-index.md (backup_url) -> https://www.lookintobitcoin.com/charts/mvrv-zscore/
 OK   [HTTP_403      ] content/05-crypto/crypto-spot-etf-inflow-outflow-btc-eth.md (ext_url) -> https://farside.co.uk/btc/
@@ -70,13 +81,13 @@ OK   [HTTP_403      ] content/05-crypto/stablecoin-mcap-onchain-liquidity.md (ba
 OK   [HTTP_200      ] content/06-equity-tsla-spcx/cn-hk-us-broad-index-pbpe-history.md (ext_url) -> https://www.csindex.com.cn/#/indices/family/list?index_series=1
 OK   [HTTP_200      ] content/06-equity-tsla-spcx/cn-hk-us-broad-index-pbpe-history.md (backup_url) -> https://www.multpl.com/shiller-pe
 OK   [HTTP_200      ] content/06-equity-tsla-spcx/fund-managers-cn-qreport-and-us-13f.md (ext_url) -> https://fund.eastmoney.com/data/fundranking.html
-OK   [HTTP_200      ] content/06-equity-tsla-spcx/fund-managers-cn-qreport-and-us-13f.md (backup_url) -> https://www.sec.gov/edgar/searchedgar/companysearch
+OK   [HTTP_403      ] content/06-equity-tsla-spcx/fund-managers-cn-qreport-and-us-13f.md (backup_url) -> https://www.sec.gov/edgar/searchedgar/companysearch
 OK   [HTTP_200      ] content/06-equity-tsla-spcx/sw-sector-pb-roe-archive.md (ext_url) -> https://data.eastmoney.com/bkzj/hy.html
 OK   [HTTP_200      ] content/06-equity-tsla-spcx/sw-sector-pb-roe-archive.md (backup_url) -> https://www.csindex.com.cn/
 OK   [HTTP_200      ] content/06-equity-tsla-spcx/tesla-tsla-spacex-spcx-long-short-positioning.md (ext_url) -> https://www.marketbeat.com/stocks/NASDAQ/TSLA/short-interest/
 OK   [HTTP_200      ] content/06-equity-tsla-spcx/tesla-tsla-spacex-spcx-long-short-positioning.md (backup_url) -> https://finviz.com/quote.ashx?t=TSLA
 OK   [HTTP_200      ] content/07-tools-strategy/legacy-fomc-dotplot-json-endpoint.md (ext_url) -> https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm
-OK   [HTTP_200      ] content/07-tools-strategy/legacy-fomc-dotplot-json-endpoint.md (backup_url) -> https://fred.stlouisfed.org/series/FEDTARMD
+FAIL [AbortError    ] content/07-tools-strategy/legacy-fomc-dotplot-json-endpoint.md (backup_url) -> https://fred.stlouisfed.org/series/FEDTARMD
 OK   [HTTP_200      ] content/07-tools-strategy/rebalance-var-risk-management-formulas.md (ext_url) -> https://www.portfoliovisualizer.com/asset-correlations
 OK   [HTTP_200      ] content/07-tools-strategy/rebalance-var-risk-management-formulas.md (backup_url) -> https://www.portfoliovisualizer.com/monte-carlo-simulation
 OK   [HTTP_200      ] content/07-tools-strategy/webmcp-404-agent-calibration-spec.md (ext_url) -> https://jstdlee.github.io/52etf/404.txt
