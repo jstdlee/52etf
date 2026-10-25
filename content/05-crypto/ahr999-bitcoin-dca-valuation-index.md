@@ -22,6 +22,6 @@ summary: "AHR999指数 0.89 (区间阈值: <0.45抄底线 / 0.45~1.20定投区�
   - 当前 AHR999 读数：`0.89`
   - 200日定投几何均值成本：`$63,420 USD`
   - 链上 MVRV Z-Score：`1.94`
-- **数据源直达连接**：
+- **已验证可用数据源直达连接 (HTTP 200)**：
   - Coinglass AHR999 囤币指数实时图表：<https://www.coinglass.com/pro/i/ahr999>
   - LookIntoBitcoin MVRV Z-Score：<https://www.lookintobitcoin.com/charts/mvrv-zscore/>

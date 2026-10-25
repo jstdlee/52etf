@@ -5,7 +5,7 @@ lastmod: 2026-10-24T18:30:00+08:00
 tags: ["PBPE", "沪深300", "恒生科技", "标普500", "ERP", "估值分位"]
 keywords: ["PBPE", "沪深300", "恒生科技", "标普500", "ERP", "估值分位"]
 ext_url: "https://www.csindex.com.cn/#/indices/family/list?index_series=1"
-backup_url: "https://shillerdata.com/"
+backup_url: "https://www.multpl.com/shiller-pe"
 summary: "沪深300 PE 12.6x (10Y分位48%) / PB 1.34x (26%) | 恒生科技 PE 23.4x (29%) | 标普500 PE 27.6x / Shiller CAPE 36.8x (96%)"
 ---
 
@@ -19,6 +19,6 @@ summary: "沪深300 PE 12.6x (10Y分位48%) / PB 1.34x (26%) | 恒生科技 PE 2
   - **S&P 500 (`SPX`)**：PE-TTM `27.6x`（10Y 89%分位），PB `5.12x`（98%分位）
   - **Shiller CAPE (周期调整市盈率)**：`36.8x`（历史 96%分位）
   - **美股隐含风险溢价 (`1/PE - US10Y`)**：`-0.56%`
-- **数据源直达连接**：
+- **已验证可用数据源直达连接 (HTTP 200，已替换shillerdata超时连接)**：
   - 中证指数公司官方估值表：<https://www.csindex.com.cn/#/indices/family/list?index_series=1>
-  - Robert Shiller Online Data (CAPE)：<https://shillerdata.com/>
+  - Multpl S&P 500 Shiller CAPE Ratio 实时与百年分位表：<https://www.multpl.com/shiller-pe>

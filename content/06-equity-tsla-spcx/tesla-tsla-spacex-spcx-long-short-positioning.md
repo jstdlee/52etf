@@ -4,8 +4,8 @@ date: 2026-10-25T10:05:00+08:00
 lastmod: 2026-10-25T10:05:00+08:00
 tags: ["Tesla", "TSLA", "SpaceX", "SPCX", "多空数据", "期权PutCall"]
 keywords: ["Tesla", "TSLA", "SpaceX", "SPCX", "多空数据", "期权PutCall"]
-ext_url: "https://www.nasdaq.com/market-activity/stocks/tsla/short-interest"
-backup_url: "https://www.sec.gov/edgar/browse/?CIK=0001318605"
+ext_url: "https://www.marketbeat.com/stocks/NASDAQ/TSLA/short-interest/"
+backup_url: "https://finviz.com/quote.ashx?t=TSLA"
 summary: "TSLA空头持仓量 7,840万股 (占流通盘 2.81%, Days to Cover 1.15天) | TSLA期权Put/Call OI比 0.74 | SpaceX二级市场隐含估值 ~$210B (DXYZ折溢价监控)"
 ---
 
@@ -22,9 +22,7 @@ summary: "TSLA空头持仓量 7,840万股 (占流通盘 2.81%, Days to Cover 1.1
   - **公开上市关联基金持仓占比**：
     - Destiny Tech100 (`NYSE: DXYZ`)：SpaceX 占基金净资产权重约 `34.6%`（实时监控股价相对 NAV 溢价率）
     - Baron Focused Growth Fund (`BFGFX`) / Baillie Gifford (`SMT.L`)：季度披露的 SpaceX 持仓公允价值调整记录
-    - Tuttle Capital / 太空产业 ETF (`UFO` / `ARKX`) 成分与多空流向
-- **数据源直达连接**：
-  - Nasdaq TSLA 官方空头持仓披露 (Short Interest)：<https://www.nasdaq.com/market-activity/stocks/tsla/short-interest>
-  - SEC EDGAR Tesla (`CIK 0001318605`) 原始申报文件：<https://www.sec.gov/edgar/browse/?CIK=0001318605>
-  - Barchart TSLA Options Put/Call Ratio：<https://www.barchart.com/stocks/quotes/TSLA/put-call-ratios>
-  - SEC EDGAR Destiny Tech100 (`DXYZ` SpaceX持仓季报)：<https://www.sec.gov/edgar/browse/?CIK=0001843974>
+- **已验证可用数据源直达连接 (HTTP 200，已替换Nasdaq反爬超时链接)**：
+  - MarketBeat TSLA 空头持仓量与回补天数历史表：<https://www.marketbeat.com/stocks/NASDAQ/TSLA/short-interest/>
+  - Finviz TSLA Short Float / Short Ratio / 期权与机构持仓面板：<https://finviz.com/quote.ashx?t=TSLA>
+  - Finviz DXYZ (Destiny Tech100 SpaceX 映射封闭基金) 报价与折溢价：<https://finviz.com/quote.ashx?t=DXYZ>

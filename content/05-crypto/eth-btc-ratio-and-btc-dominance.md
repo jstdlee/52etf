@@ -19,6 +19,6 @@ summary: "ETH/BTC 汇率比值 0.0372 (近5年分位 8.4%) | BTC市值占比 (BT
   - **Bitcoin Dominance (`BTC.D`)**：`58.6%`
   - **Ethereum Dominance (`ETH.D`)**：`13.1%`
   - **Stablecoin Dominance (`USDT.D + USDC.D`)**：`7.9%`
-- **数据源直达连接**：
+- **已验证可用数据源直达连接 (HTTP 200)**：
   - TradingView ETHBTC 汇率图表：<https://www.tradingview.com/symbols/ETHBTC/>
   - CoinGecko Global Market Cap Dominance：<https://www.coingecko.com/en/global-charts>

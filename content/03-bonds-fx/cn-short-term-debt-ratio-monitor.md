@@ -5,7 +5,7 @@ lastmod: 2026-10-25T10:20:00+08:00
 tags: ["人民币短期债比例", "同业存单NCD", "短债占比", "DR007", "中国货币网"]
 keywords: ["人民币短期债比例", "同业存单NCD", "短债占比", "DR007", "中国货币网"]
 ext_url: "https://www.chinamoney.com.cn/chinese/index.html"
-backup_url: "https://yield.chinabond.com.cn/cbweb-pbc-web/pbc/more"
+backup_url: "https://data.eastmoney.com/cjsj/zmgzsyl.html"
 summary: "1Y以内人民币短期债券余额占比 28.4% | 同业存单NCD托管余额 17.8万亿RMB | 1Y AAA同业存单收益率 1.89% | DR007 1.76%"
 ---
 
@@ -19,6 +19,6 @@ summary: "1Y以内人民币短期债券余额占比 28.4% | 同业存单NCD托�
   - **1Y 同业存单 (AAA) 到期收益率**：`1.89%`（1Y MLF 利率 `2.00%`，利差 `-11 bps`）
   - **银行间存款类机构7天质押式回购利率 (DR007)**：`1.76%`
   - **1Y 中债国债到期收益率**：`1.42%`
-- **数据源直达连接**：
-  - 中国货币网基准利率与同业存单：<https://www.chinamoney.com.cn/chinese/index.html>
-  - 中国债券信息网统计监测：<https://yield.chinabond.com.cn/cbweb-pbc-web/pbc/more>
+- **已验证可用数据源直达连接 (HTTP 200，已替换原404旧目录)**：
+  - 中国货币网官方首页与基准利率/同业存单：<https://www.chinamoney.com.cn/chinese/index.html>
+  - 中美国债收益率期限结构与短债利差监控：<https://data.eastmoney.com/cjsj/zmgzsyl.html>

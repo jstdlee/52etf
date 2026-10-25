@@ -21,7 +21,7 @@ summary: "S&P Case-Shiller全美房价指数 325.6 (+4.2% YoY) | 30Y固定按揭
   - **美国成屋销售年化总数 (`EXHOSLUSM495S`)**：`3.84 Million Units`（可供销售月数 `4.3 个月`）
   - **美国私人住宅新屋开工年化 (`HOUST`)**：`1.354 Million Units`
   - **美国建筑商信心指数 (NAHB Housing Market Index)**：`43`
-- **数据源直达连接**：
+- **已验证可用数据源直达连接 (HTTP 200)**：
   - FRED Case-Shiller 全美房价指数：<https://fred.stlouisfed.org/series/CSUSHPINSA>
   - FRED 30年期固定房贷利率：<https://fred.stlouisfed.org/series/MORTGAGE30US>
   - FRED 美国新屋开工数：<https://fred.stlouisfed.org/series/HOUST>

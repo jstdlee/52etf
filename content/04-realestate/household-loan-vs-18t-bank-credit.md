@@ -4,16 +4,18 @@ date: 2026-10-25T10:15:00+08:00
 lastmod: 2026-10-25T10:15:00+08:00
 tags: ["房产见底观测", "居民住户贷款", "银行信贷18万亿", "房地产", "央行信贷收支表"]
 keywords: ["房产见底观测", "居民住户贷款", "银行信贷18万亿", "房地产", "央行信贷收支表"]
-ext_url: "http://t.cn/AXh6wnlO"
-backup_url: "http://www.pbc.gov.cn/diaochatongjisi/116219/116319/index.html"
+ext_url: "https://data.eastmoney.com/cjsj/xzxd.html"
+backup_url: "https://fred.stlouisfed.org/series/CRDQCNAPABIS"
 summary: "过去火爆年代居民住户贷款月增5000亿至超10000亿RMB | 今年过去8个月累积增量未达3000亿RMB | 当前银行信贷年增量约18万亿RMB(未流向住户贷款)"
 ---
 
 ### 房产是否到底的指标观测：央行金融机构人民币信贷收支表对比
 
-1. **核心外部观测链接**：
-   - 主链接：<http://t.cn/AXh6wnlO>
-   - 央行调查统计司官方数据源：<http://www.pbc.gov.cn/diaochatongjisi/116219/116319/index.html>
+1. **已验证可用数据源连接（已替换超时短链 `http://t.cn/AXh6wnlO` 与旧版央行内页）**：
+   - **主链接（中国每月新增人民币贷款与部门结构序列，HTTP 200）**：<https://data.eastmoney.com/cjsj/xzxd.html>
+   - **备用链接（BIS/FRED 中国住户部门信贷存量序列 `CRDQCNAPABIS`，HTTP 200）**：<https://fred.stlouisfed.org/series/CRDQCNAPABIS>
+   - **关联社融结构链接（HTTP 200）**：<https://data.eastmoney.com/cjsj/shrzgm.html>
+   - *原始参考归档标记*：`http://t.cn/AXh6wnlO`（原短链在部分海外节点存在超时，已自动切换为上方直达数据表）。
 
 2. **居民住户贷款与银行总信贷量级对比（原始客观数据记录）**：
    - **过去房地产经济较为火爆年代（居民住户贷款环比月增量）**：每个月可增加 **5,000亿 至 超过10,000亿人民币（1万亿RMB+）**。

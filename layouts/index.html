@@ -1,5 +1,5 @@
 {{ define "main" }}
-{{- $refUnix := (time "2026-10-25T10:35:00+08:00").Unix -}}
+{{- $refUnix := (time "2026-10-25T12:00:00+08:00").Unix -}}
 {{- $allPages := where .Site.RegularPages "Section" "!=" "" -}}
 {{- $sortedPages := sort $allPages "Lastmod" "desc" -}}
 
@@ -8,7 +8,7 @@
   <span id="search-stat" class="count">{{ len $sortedPages }}</span>
 </div>
 
-<p class="taxonomy-title">sections</p>
+<p id="categories" class="taxonomy-title">categories</p>
 <ul class="tag-list">
 {{- range sort .Site.Sections "Section" "asc" }}
   {{- $secStale := 0 -}}
@@ -17,7 +17,7 @@
       {{- $secStale = add $secStale 1 -}}
     {{- end -}}
   {{- end -}}
-  <li><span class="date">{{ .Lastmod.Format "2006-01-02" }}</span><a class="tag" href="{{ .RelPermalink }}">{{ .Title }}</a> <span class="count">{{ len .RegularPages }}</span>{{ if gt $secStale 0 }} <span class="tag stale">[{{ $secStale }} stale]</span>{{ end }}</li>
+  <li><a class="tag" href="{{ .RelPermalink }}">{{ .Title }}</a> <span class="count">{{ len .RegularPages }}</span>{{ if gt $secStale 0 }} <span class="tag stale">[{{ $secStale }} stale]</span>{{ end }}</li>
 {{- end }}
 </ul>
 

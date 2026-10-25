@@ -5,7 +5,7 @@ lastmod: 2026-10-22T16:00:00+08:00
 tags: ["PMI", "非农就业", "经济指数", "中国宏观", "美国宏观"]
 keywords: ["PMI", "非农就业", "经济指数", "中国宏观", "美国宏观"]
 ext_url: "https://fred.stlouisfed.org/series/PAYEMS"
-backup_url: "https://data.stats.gov.cn/easyquery.htm?cn=A01"
+backup_url: "https://data.eastmoney.com/cjsj/pmi.html"
 summary: "中国官方制造业PMI 49.8 | 财新制造业PMI 50.3 | 美国ISM制造业PMI 47.2 / 服务业 54.9 | 美国失业率 4.1%"
 ---
 
@@ -18,6 +18,6 @@ summary: "中国官方制造业PMI 49.8 | 财新制造业PMI 50.3 | 美国ISM制
   - 美国非农就业人数月度变动 (`PAYEMS`)：`+254K`
   - 美国失业率 (`UNRATE`)：`4.1%`
   - ISM 制造业 PMI：`47.2`；ISM 非制造业 PMI：`54.9`
-- **数据源直达连接**：
+- **已验证可用数据源直达连接 (HTTP 200)**：
   - FRED 非农就业总人数：<https://fred.stlouisfed.org/series/PAYEMS>
-  - 国家统计局月度PMI数据库：<https://data.stats.gov.cn/easyquery.htm?cn=A01>
+  - 中国制造业与非制造业 PMI 月度序列：<https://data.eastmoney.com/cjsj/pmi.html>

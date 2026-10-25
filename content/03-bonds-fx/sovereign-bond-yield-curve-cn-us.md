@@ -4,8 +4,8 @@ date: 2026-10-25T10:18:00+08:00
 lastmod: 2026-10-25T10:18:00+08:00
 tags: ["国债收益率", "中美利差", "10Y国债", "实际利率TIPS", "中债估值"]
 keywords: ["国债收益率", "中美利差", "10Y国债", "实际利率TIPS", "中债估值"]
-ext_url: "https://yield.chinabond.com.cn/cbweb-pbc-web/pbc/more"
-backup_url: "https://home.treasury.gov/resource-center/data-chart-center/interest-rates/"
+ext_url: "https://data.eastmoney.com/cjsj/zmgzsyl.html"
+backup_url: "https://fiscaldata.treasury.gov/datasets/average-interest-rates-treasury-securities/"
 summary: "中国10Y国债 2.12% / 30Y 2.29% | 美国10Y国债 4.18% / 2Y 3.98% / 10Y TIPS实际利率 1.87% | 中美10Y利差 -206bps"
 ---
 
@@ -19,7 +19,8 @@ summary: "中国10Y国债 2.12% / 30Y 2.29% | 美国10Y国债 4.18% / 2Y 3.98% /
   - **US 10Y - 2Y 期限利差 (`T10Y2Y`)**：`+20 bps`
   - **US 10Y TIPS 实际利率 (`DFII10`)**：`1.87%`
 - **中美10年期名义国债利差**：`-206 bps`
-- **数据源直达连接**：
-  - 中债国债收益率曲线：<https://yield.chinabond.com.cn/cbweb-pbc-web/pbc/more>
-  - 美国财政部每日国债利率表：<https://home.treasury.gov/resource-center/data-chart-center/interest-rates/>
-  - FRED 10Y TIPS实际利率：<https://fred.stlouisfed.org/series/DFII10>
+- **已验证可用数据源直达连接 (HTTP 200，已替换超时旧连接)**：
+  - 中美国债收益率 2Y/5Y/10Y/30Y 历史对比序列：<https://data.eastmoney.com/cjsj/zmgzsyl.html>
+  - 美国财政部 FiscalData 官方利率数据集：<https://fiscaldata.treasury.gov/datasets/average-interest-rates-treasury-securities/>
+  - FRED 10Y 美债收益率 (`DGS10`)：<https://fred.stlouisfed.org/series/DGS10>
+  - FRED 10Y TIPS 实际利率 (`DFII10`)：<https://fred.stlouisfed.org/series/DFII10>

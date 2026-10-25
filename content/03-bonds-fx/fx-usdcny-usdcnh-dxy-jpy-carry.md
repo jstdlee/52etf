@@ -4,7 +4,7 @@ date: 2026-10-25T10:16:00+08:00
 lastmod: 2026-10-25T10:16:00+08:00
 tags: ["外汇", "USDCNY", "USDCNH", "美元指数DXY", "日元套息", "掉期点"]
 keywords: ["外汇", "USDCNY", "USDCNH", "美元指数DXY", "日元套息", "掉期点"]
-ext_url: "https://www.safe.gov.cn/safe/rmbhlzjj/index.html"
+ext_url: "https://fred.stlouisfed.org/series/DEXCHUS"
 backup_url: "https://fred.stlouisfed.org/series/DTWEXBGS"
 summary: "USD/CNY中间价 7.1095 | USD/CNH离岸 7.1260 | 1Y掉期点 -1,920 pips | 广义美元指数 123.8 | USD/JPY 151.8"
 ---
@@ -20,7 +20,8 @@ summary: "USD/CNY中间价 7.1095 | USD/CNH离岸 7.1260 | 1Y掉期点 -1,920 pi
 - **全球主要汇率与套息基准**：
   - **Trade Weighted U.S. Dollar Index (`DTWEXBGS`)**：`123.8`
   - **USD/JPY (美元兑日元 `DEXJPUS`)**：`151.80`（美日10Y国债利差约 `+322 bps`）
-- **数据源直达连接**：
-  - 国家外汇管理局人民币汇率中间价：<https://www.safe.gov.cn/safe/rmbhlzjj/index.html>
-  - FRED 贸易加权美元指数：<https://fred.stlouisfed.org/series/DTWEXBGS>
-  - FRED 美元兑日元历史序列：<https://fred.stlouisfed.org/series/DEXJPUS>
+- **已验证可用数据源直达连接 (HTTP 200，已替换超时连接)**：
+  - FRED 美元兑人民币汇率历史序列 (`DEXCHUS`)：<https://fred.stlouisfed.org/series/DEXCHUS>
+  - FRED 贸易加权美元指数 (`DTWEXBGS`)：<https://fred.stlouisfed.org/series/DTWEXBGS>
+  - FRED 美元兑日元历史序列 (`DEXJPUS`)：<https://fred.stlouisfed.org/series/DEXJPUS>
+  - 中国外汇储备与黄金储备月度序列：<https://data.eastmoney.com/cjsj/whcb.html>

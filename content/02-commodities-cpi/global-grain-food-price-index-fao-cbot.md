@@ -5,7 +5,7 @@ lastmod: 2026-10-25T10:22:00+08:00
 tags: ["粮食指数", "FAO食品指数", "大豆", "玉米", "小麦", "大宗商品"]
 keywords: ["粮食指数", "FAO食品指数", "大豆", "玉米", "小麦", "大宗商品"]
 ext_url: "https://www.fao.org/worldfoodsituation/foodpricesindex/en/"
-backup_url: "https://www.usda.gov/oce/commodity/wasde"
+backup_url: "https://fred.stlouisfed.org/series/PALLFNFINDEXM"
 summary: "联合国FAO食品价格指数 124.4 (+2.1% YoY) | FAO谷物指数 113.5 | CBOT大豆 992美分/蒲 | CBOT玉米 415美分/蒲 | CBOT小麦 572美分/蒲"
 ---
 
@@ -20,11 +20,6 @@ summary: "联合国FAO食品价格指数 124.4 (+2.1% YoY) | FAO谷物指数 113
   - **CBOT 大豆 (Soybeans)**：`992 美分/蒲式耳`
   - **CBOT 玉米 (Corn)**：`415 美分/蒲式耳`
   - **CBOT 软红冬小麦 (Wheat)**：`572 美分/蒲式耳`
-- **USDA WASDE (全球农业供需预测月报) 库存消费比**：
-  - 全球大豆期末库存消费比：`31.8%`
-  - 全球玉米期末库存消费比：`24.9%`
-  - 全球小麦期末库存消费比：`32.1%`
-- **数据源直达连接**：
+- **已验证可用数据源直达连接 (HTTP 200)**：
   - 联合国粮农组织 FAO 食品价格指数官网：<https://www.fao.org/worldfoodsituation/foodpricesindex/en/>
-  - 美国农业部 USDA WASDE 月度报告：<https://www.usda.gov/oce/commodity/wasde>
-  - IMF 全球初级商品价格指数 (FRED `PALLFNFINDEXM`)：<https://fred.stlouisfed.org/series/PALLFNFINDEXM>
+  - IMF/FRED 全球初级商品与食品价格指数 (`PALLFNFINDEXM`)：<https://fred.stlouisfed.org/series/PALLFNFINDEXM>

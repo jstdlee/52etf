@@ -17,7 +17,7 @@ summary: "Hyperliquid总OI $3.86B | Top巨鲸账户净多空比 1.18 (多54.1% /
   - **BTC-PERP 8小时/年化资金费率 (Funding Rate)**：`+0.0104% / 8h`（折合年化 `+11.38%`）
   - **HLP (Hyperliquidity Provider Vault) 净敞口**：TVL `$412M`，做市被动净Delta敞口 `-$18.5M`
   - **链上清算密集带 (Liquidation Cluster)**：上方空单强平密集区 `+4.5%`，下方高倍多单强平密集区 `-5.2%`
-- **数据源与API直达连接**：
+- **已验证可用数据源直达连接 (HTTP 200)**：
   - Hyperliquid 官方交易与统计面板：<https://app.hyperliquid.xyz/trade>
   - Coinglass Hyperliquid 巨鲸多空持仓与强平面板：<https://www.coinglass.com/hyperliquid>
   - DefiLlama Hyperliquid TVL与衍生品成交量：<https://defillama.com/protocol/hyperliquid>

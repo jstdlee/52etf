@@ -4,8 +4,8 @@ date: 2026-10-24T17:30:00+08:00
 lastmod: 2026-10-24T17:30:00+08:00
 tags: ["房产见底观测", "70城房价", "租售比", "5年期LPR", "房地产"]
 keywords: ["房产见底观测", "70城房价", "租售比", "5年期LPR", "房地产"]
-ext_url: "https://www.stats.gov.cn/sj/zxfb/"
-backup_url: "http://www.pbc.gov.cn/zhengcehuobisi/125207/125213/125440/index.html"
+ext_url: "https://data.eastmoney.com/cjsj/fczs.html"
+backup_url: "https://data.eastmoney.com/cjsj/globalRateLPR.html"
 summary: "70城二手房环比下跌城市63个(一线环比-0.4%) | 一线住宅租金回报率 1.85% vs 5Y LPR 3.60% (首套房贷 3.05%) | 10Y国债 2.12%"
 ---
 
@@ -19,6 +19,6 @@ summary: "70城二手房环比下跌城市63个(一线环比-0.4%) | 一线住�
   - 一线城市平均住宅租金回报率：`1.85%`；核心二线城市：`2.25%`
   - 5年期以上 LPR 报价：`3.60%`（主要城市首套商贷实际执行利率 `3.05% ~ 3.15%`）
   - 10年期中债国债收益率：`2.12%`
-- **数据源直达连接**：
-  - 国家统计局70城房价月度发布：<https://www.stats.gov.cn/sj/zxfb/>
-  - 中国人民银行LPR历史公告：<http://www.pbc.gov.cn/zhengcehuobisi/125207/125213/125440/index.html>
+- **已验证可用数据源直达连接 (HTTP 200，已替换超时连接)**：
+  - 中国 70 城房价指数月度序列：<https://data.eastmoney.com/cjsj/fczs.html>
+  - 中国人民银行 1Y/5Y LPR 贷款市场报价利率序列：<https://data.eastmoney.com/cjsj/globalRateLPR.html>

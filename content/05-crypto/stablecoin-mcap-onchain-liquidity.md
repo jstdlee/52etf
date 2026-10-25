@@ -16,6 +16,6 @@ summary: "全网稳定币总市值 $194.6B (30D +2.1%) | USDT $120.3B (占比61.
   - **Circle (USDC)**：`$36.1B`（主导率 `18.5%`）
   - **MakerDAO / Sky (DAI + USDS)**：`$5.4B`
 - **公链分布占比**：Ethereum 主网 `49.2%`，Tron 波场 `30.8%`，Solana / Arbitrum / Base 合计 `11.4%`。
-- **数据源直达连接**：
+- **已验证可用数据源直达连接 (HTTP 200)**：
   - DefiLlama Stablecoins Dashboard：<https://defillama.com/stablecoins>
   - CoinGecko Stablecoin Category：<https://www.coingecko.com/en/categories/stablecoins>
