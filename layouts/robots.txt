@@ -1,0 +1,48 @@
+# 52etf.net — Cloudflare Agent, WebMCP & Search Friendly robots.txt
+# Policy: Pure objective economic/crypto/market data cache & verified URLs only.
+# Cloudflare Content Signals (https://contentsignals.org/)
+#   search=yes   : Permitted for search engine indexing
+#   ai-input=yes : Permitted for RAG, AI Search, Grounding, and Agentic tool use
+#   ai-train=no  : Not for foundation model pretraining
+
+User-agent: *
+Content-Signal: search=yes, ai-input=yes, ai-train=no
+Allow: /
+Allow: /llms.txt
+Allow: /llms-full.txt
+Allow: /index.json
+Allow: /index.md
+Allow: /404.txt
+Allow: /.well-known/mcp.json
+Allow: /.well-known/agent.json
+
+# AI Search, Grounding & Agent Retrieval Bots
+User-agent: OAI-SearchBot
+User-agent: ChatGPT-User
+User-agent: GPTBot
+User-agent: Claude-SearchBot
+User-agent: Claude-User
+User-agent: ClaudeBot
+User-agent: PerplexityBot
+User-agent: Perplexity-User
+User-agent: GrokBot
+User-agent: xAI-Bot
+User-agent: Googlebot
+User-agent: Google-Extended
+User-agent: GoogleOther
+User-agent: Applebot
+User-agent: Applebot-Extended
+User-agent: Bingbot
+User-agent: Amazonbot
+User-agent: DuckAssistBot
+Content-Signal: search=yes, ai-input=yes, ai-train=no
+Allow: /
+
+Sitemap: {{ "sitemap.xml" | absURL }}
+# Agent & MCP Discovery Endpoints:
+# LLMs Concise Index: {{ "llms.txt" | absURL }}
+# LLMs Full Corpus:   {{ "llms-full.txt" | absURL }}
+# JSON API Index:     {{ "index.json" | absURL }}
+# Link Audit Report:  {{ "404.txt" | absURL }}
+# MCP Manifest:       {{ ".well-known/mcp.json" | absURL }}
+# A2A Agent Card:     {{ ".well-known/agent.json" | absURL }}

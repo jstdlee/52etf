@@ -1,18 +1,27 @@
-# {{ .Site.Title }} — LLM & WebMCP Plaintext Index
-> Policy: Pure objective economic/crypto/market data cache & verified URLs only. Zero market commentary. Zero personal asset disclosure.
-> Broken & Stale Link Report: {{ "404.txt" | absURL }}
-> Structured JSON Index: {{ "index.json" | absURL }}
-> Sitemap XML: {{ "sitemap.xml" | absURL }}
+# {{ .Site.Title }} —常用经济指标缓存、Crypto链上多空、房地产观测与有效连接汇总
 
-{{- $refUnix := (time "2026-10-25T10:35:00+08:00").Unix }}
+> Pure objective economic, financial, commodity, real-estate, and crypto data cache with verified primary/backup URLs. Zero market commentary. Zero personal asset or portfolio disclosure.
+> Content-Signal: search=yes, ai-input=yes, ai-train=no
+
+## Agent & MCP Discovery Endpoints
+- [Home Markdown Twin]({{ "index.md" | absURL }}): Token-efficient Markdown representation of the home directory (`Accept: text/markdown` compatible)
+- [Full Corpus in 1 Request (llms-full.txt)]({{ "llms-full.txt" | absURL }}): Complete inline Markdown text, cached tables, formulas, and verified URLs for all 25 indicators
+- [Structured Search & Agent JSON Index (index.json)]({{ "index.json" | absURL }}): Full JSON array with metadata, tags, lastmod, staleness (>180d), and raw markdown body
+- [404 & Stale (>6m) Link Verification Report (404.txt)]({{ "404.txt" | absURL }}): CI-verified HTTP reachability log for all 50 external links + stale indicator list
+- [MCP Service Discovery (.well-known/mcp.json)]({{ ".well-known/mcp.json" | absURL }}): Model Context Protocol & WebMCP tool definitions
+- [A2A Agent Card (.well-known/agent.json)]({{ ".well-known/agent.json" | absURL }}): Agent-to-Agent capability & rate-limit manifest
+- [Sitemap XML]({{ "sitemap.xml" | absURL }}): Full XML sitemap for search engines and crawlers
+- [GitHub Repository](https://github.com/jstdlee/52etf): Source repository (`content/` holds all Markdown files)
+
+## Categories
+{{- range sort .Site.Sections "Section" "asc" }}
+- [{{ .Title }}]({{ .Permalink }}index.md): {{ .Description }} (HTML: {{ .Permalink }})
+{{- end }}
+
+## Cached Indicators ({{ len (where .Site.RegularPages "Section" "!=" "") }})
+{{- $refUnix := (time "2026-10-25T12:00:00+08:00").Unix }}
 {{- range sort (where .Site.RegularPages "Section" "!=" "") "Lastmod" "desc" }}
 {{- $ageDays := div (sub $refUnix .Lastmod.Unix) 86400 }}
 {{- $isStale := gt $ageDays 180 }}
-- [{{ .Lastmod.Format "2006-01-02" }}]{{ if $isStale }} [STALE_OVER_6M:{{ $ageDays }}d]{{ end }} {{ .Title }}
-  Page: {{ .Permalink }}
-  Section: {{ .Section }} | Tags: {{ delimit (.Params.tags | default slice) ", " }}
-  Summary: {{ .Params.summary }}
-  Primary_URL: {{ .Params.ext_url }}
-  Backup_URL: {{ .Params.backup_url }}
-  Repo_Path: content/{{ .File.Path }}
+- [{{ .Title }}]({{ .Permalink }}index.md): [{{ .Lastmod.Format "2006-01-02" }}]{{ if $isStale }} [STALE_OVER_6M:{{ $ageDays }}d]{{ end }} {{ .Params.summary }} | Primary: {{ .Params.ext_url }} | Backup: {{ .Params.backup_url }} | HTML: {{ .Permalink }}
 {{- end }}

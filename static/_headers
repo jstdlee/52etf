@@ -1,12 +1,36 @@
 /*
   Content-Signal: search=yes, ai-input=yes, ai-train=no
-  X-Content-Type-Options: nosniff
-  Link: </llms.txt>; rel="alternate"; type="text/plain", </index.json>; rel="alternate"; type="application/json", </.well-known/mcp.json>; rel="service-desc"
-
-/index.json
+  X-Robots-Tag: index, follow
   Access-Control-Allow-Origin: *
-  Cache-Control: public, max-age=300, s-maxage=3600, stale-while-revalidate=86400
+  Access-Control-Allow-Methods: GET, HEAD, OPTIONS
+  Link: </llms.txt>; rel="llms-txt", </llms-full.txt>; rel="alternate"; type="text/plain"; title="LLMs Full Corpus", </index.json>; rel="alternate"; type="application/json"; title="Agent JSON Index", </.well-known/mcp.json>; rel="service-desc", </.well-known/agent.json>; rel="agent-card"
+
+/*.md
+  Content-Type: text/markdown; charset=utf-8
+  Content-Signal: search=yes, ai-input=yes, ai-train=no
+  Access-Control-Allow-Origin: *
 
 /llms.txt
   Content-Type: text/plain; charset=utf-8
-  Cache-Control: public, max-age=300, s-maxage=3600
+  Content-Signal: search=yes, ai-input=yes, ai-train=no
+  Access-Control-Allow-Origin: *
+
+/llms-full.txt
+  Content-Type: text/plain; charset=utf-8
+  Content-Signal: search=yes, ai-input=yes, ai-train=no
+  Access-Control-Allow-Origin: *
+
+/404.txt
+  Content-Type: text/plain; charset=utf-8
+  Content-Signal: search=yes, ai-input=yes, ai-train=no
+  Access-Control-Allow-Origin: *
+
+/index.json
+  Content-Type: application/json; charset=utf-8
+  Content-Signal: search=yes, ai-input=yes, ai-train=no
+  Access-Control-Allow-Origin: *
+
+/.well-known/*
+  Content-Type: application/json; charset=utf-8
+  Content-Signal: search=yes, ai-input=yes, ai-train=no
+  Access-Control-Allow-Origin: *

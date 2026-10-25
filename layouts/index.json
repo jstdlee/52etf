@@ -1,13 +1,36 @@
-{{- $refUnix := (time "2026-10-25T10:35:00+08:00").Unix -}}
+{{- $refUnix := (time "2026-10-25T12:00:00+08:00").Unix -}}
+{{- $categories := slice -}}
+{{- range sort .Site.Sections "Section" "asc" -}}
+  {{- $secStale := 0 -}}
+  {{- range .RegularPages -}}
+    {{- if gt (div (sub $refUnix .Lastmod.Unix) 86400) 180 -}}
+      {{- $secStale = add $secStale 1 -}}
+    {{- end -}}
+  {{- end -}}
+  {{- $categories = $categories | append (dict
+      "section" .Section
+      "title" .Title
+      "description" (.Description | default "")
+      "permalink" .Permalink
+      "rel_permalink" .RelPermalink
+      "markdown_url" (printf "%sindex.md" .Permalink)
+      "count" (len .RegularPages)
+      "stale_count" $secStale
+  ) -}}
+{{- end -}}
 {{- $items := slice -}}
 {{- range sort (where .Site.RegularPages "Section" "!=" "") "Lastmod" "desc" -}}
   {{- $ageDays := div (sub $refUnix .Lastmod.Unix) 86400 -}}
   {{- $isStale := gt $ageDays 180 -}}
   {{- $item := dict
+      "slug" .File.ContentBaseName
       "title" .Title
       "section" .Section
+      "section_title" .CurrentSection.Title
       "permalink" .Permalink
       "rel_permalink" .RelPermalink
+      "markdown_url" (printf "%sindex.md" .Permalink)
+      "rel_markdown_url" (printf "%sindex.md" .RelPermalink)
       "lastmod" (.Lastmod.Format "2006-01-02")
       "age_days" $ageDays
       "stale_over_6m" $isStale
@@ -16,16 +39,28 @@
       "ext_url" (.Params.ext_url | default "")
       "backup_url" (.Params.backup_url | default "")
       "repo_file" (printf "content/%s" .File.Path)
+      "raw_markdown" .RawContent
   -}}
   {{- $items = $items | append $item -}}
 {{- end -}}
 {{- dict
     "site" .Site.Title
     "base_url" .Site.BaseURL
-    "generated_at" "2026-10-25T10:35:00+08:00"
+    "mirror_url" "https://jstdlee.github.io/52etf/"
+    "generated_at" "2026-10-25T12:00:00+08:00"
+    "content_signal" "search=yes, ai-input=yes, ai-train=no"
     "policy" "Content and verified links only. No market commentary. No asset/position disclosure."
     "stale_threshold_days" 180
-    "broken_and_stale_report_url" ("404.txt" | absURL)
+    "endpoints" (dict
+      "llms_txt" ("llms.txt" | absURL)
+      "llms_full_txt" ("llms-full.txt" | absURL)
+      "home_markdown" ("index.md" | absURL)
+      "broken_and_stale_report_url" ("404.txt" | absURL)
+      "mcp_manifest_url" (".well-known/mcp.json" | absURL)
+      "agent_card_url" (".well-known/agent.json" | absURL)
+      "sitemap_url" ("sitemap.xml" | absURL)
+    )
+    "categories" $categories
     "count" (len $items)
     "items" $items
 | jsonify (dict "indent" "  ") -}}

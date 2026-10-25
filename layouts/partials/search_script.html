@@ -1,7 +1,30 @@
+<script type="application/mcp+json" id="webmcp-manifest">
+{
+  "schema_version": "2026-10",
+  "name": "52etf-webmcp",
+  "site_url": "{{ .Site.BaseURL }}",
+  "content_signal": "search=yes, ai-input=yes, ai-train=no",
+  "endpoints": {
+    "index_json": "{{ "index.json" | relURL }}",
+    "llms_txt": "{{ "llms.txt" | relURL }}",
+    "llms_full_txt": "{{ "llms-full.txt" | relURL }}",
+    "markdown_twin": "{{ .RelPermalink }}index.md",
+    "link_audit_404_txt": "{{ "404.txt" | relURL }}",
+    "mcp_manifest": "{{ ".well-known/mcp.json" | relURL }}",
+    "agent_card": "{{ ".well-known/agent.json" | relURL }}"
+  },
+  "tools": [
+    "search_indicators",
+    "get_indicator_detail",
+    "get_stale_or_broken_links",
+    "list_categories"
+  ]
+}
+</script>
 <script>
 (function(){
   const STALE_DAYS_LIMIT = {{ .Site.Params.staleDaysLimit | default 180 }};
-  const REF_UNIX = Math.floor(new Date("2026-10-25T10:35:00+08:00").getTime() / 1000);
+  const REF_UNIX = Math.floor(new Date("2026-10-25T12:00:00+08:00").getTime() / 1000);
   const nowUnix = Math.max(REF_UNIX, Math.floor(Date.now() / 1000));
   document.querySelectorAll('.item-row[data-lastmod]').forEach(el => {
     const lm = parseInt(el.getAttribute('data-lastmod'), 10);
@@ -50,4 +73,123 @@ function runSearch() {
   const stat = document.getElementById('search-stat');
   if (stat) stat.textContent = q.trim() ? (visible + '/' + rows.length) : String(rows.length);
 }
+
+// WebMCP (navigator.modelContext) & window.MCP_TOOLS Registration for Browser AI Agents
+(function initWebMCP() {
+  const INDEX_JSON_URL = {{ "index.json" | relURL | jsonify }};
+  const REPORT_404_URL = {{ "404.txt" | relURL | jsonify }};
+  let cachedIndex = null;
+
+  async function loadIndex() {
+    if (cachedIndex) return cachedIndex;
+    const res = await fetch(INDEX_JSON_URL, { headers: { "Accept": "application/json" } });
+    cachedIndex = await res.json();
+    return cachedIndex;
+  }
+
+  const tools = [
+    {
+      name: "search_indicators",
+      description: "Search 52etf.net cached economic, commodity, bond, FX, real estate, crypto, and equity indicators by keyword, category, or tag.",
+      inputSchema: {
+        type: "object",
+        properties: {
+          query: { type: "string", description: "Fuzzy search keyword (e.g. 'M2', 'Hyperliquid', 'AHR999', 'TSLA', '粮食', '住户贷款')" },
+          category: { type: "string", description: "Optional section slug (e.g. '01-macro-money', '05-crypto')" },
+          tag: { type: "string", description: "Optional tag filter without #" },
+          include_stale: { type: "boolean", description: "Include items not updated for >180 days (default true)", default: true }
+        }
+      },
+      execute: async (args = {}) => {
+        const data = await loadIndex();
+        const q = (args.query || "").trim();
+        const cat = (args.category || "").trim().toLowerCase();
+        const tag = (args.tag || "").trim().replace(/^#/, "").toLowerCase();
+        const includeStale = args.include_stale !== false;
+        if (q && document.getElementById("q")) {
+          document.getElementById("q").value = q;
+          runSearch();
+        }
+        const matches = (data.items || []).filter(item => {
+          if (!includeStale && item.stale_over_6m) return false;
+          if (cat && item.section.toLowerCase() !== cat) return false;
+          if (tag && !(item.tags || []).some(t => t.toLowerCase() === tag)) return false;
+          if (!q) return true;
+          const hay = [item.title, item.summary, item.section, (item.tags || []).join(" "), item.ext_url].join(" ").toLowerCase();
+          return fuzzyMatch(hay, q);
+        }).map(({ raw_markdown, ...rest }) => rest);
+        return { count: matches.length, results: matches };
+      }
+    },
+    {
+      name: "get_indicator_detail",
+      description: "Get full cached Markdown content, formulas, primary/backup URLs, and staleness status for a specific indicator by slug, URL, or title.",
+      inputSchema: {
+        type: "object",
+        properties: {
+          slug_or_url: { type: "string", description: "Indicator slug (e.g. 'crypto-hyperliquid-onchain-long-short'), URL path, or title" }
+        },
+        required: ["slug_or_url"]
+      },
+      execute: async (args = {}) => {
+        const data = await loadIndex();
+        const target = (args.slug_or_url || "").trim().toLowerCase();
+        const found = (data.items || []).find(item =>
+          (item.slug && item.slug.toLowerCase() === target) ||
+          (item.permalink && item.permalink.toLowerCase().includes(target)) ||
+          (item.rel_permalink && item.rel_permalink.toLowerCase().includes(target)) ||
+          (item.title && item.title.toLowerCase().includes(target))
+        );
+        if (!found) return { error: "Indicator not found", query: args.slug_or_url };
+        return found;
+      }
+    },
+    {
+      name: "get_stale_or_broken_links",
+      description: "Return all indicators not updated for >180 days (6 months) and the CI /404.txt link verification report.",
+      inputSchema: { type: "object", properties: {} },
+      execute: async () => {
+        const [data, reportResp] = await Promise.all([
+          loadIndex(),
+          fetch(REPORT_404_URL).then(r => r.text()).catch(() => "")
+        ]);
+        const staleItems = (data.items || [])
+          .filter(i => i.stale_over_6m)
+          .map(({ raw_markdown, ...rest }) => rest);
+        return {
+          stale_threshold_days: data.stale_threshold_days || 180,
+          stale_count: staleItems.length,
+          stale_items: staleItems,
+          report_404_txt: reportResp
+        };
+      }
+    },
+    {
+      name: "list_categories",
+      description: "List all 6 indicator categories on 52etf.net with item counts, stale counts, and Markdown twin URLs.",
+      inputSchema: { type: "object", properties: {} },
+      execute: async () => {
+        const data = await loadIndex();
+        return {
+          site: data.site,
+          total_indicators: data.count,
+          categories: data.categories || []
+        };
+      }
+    }
+  ];
+
+  window.MCP_TOOLS = {};
+  tools.forEach(t => { window.MCP_TOOLS[t.name] = t; });
+
+  if (typeof navigator !== "undefined" && navigator.modelContext) {
+    try {
+      if (typeof navigator.modelContext.registerTool === "function") {
+        tools.forEach(t => navigator.modelContext.registerTool(t));
+      } else if (typeof navigator.modelContext.provideContext === "function") {
+        navigator.modelContext.provideContext({ tools });
+      }
+    } catch (_) {}
+  }
+})();
 </script>

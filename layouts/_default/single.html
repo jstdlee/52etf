@@ -5,12 +5,13 @@
 <article>
   <h1{{ if $isStale }} class="stale"{{ end }}>{{ .Title }}{{ if $isStale }} [超6个月未更新: {{ $ageDays }}d]{{ end }}</h1>
   <p class="meta">
-    <span class="date">{{ .Lastmod.Format "2006-01-02" }}</span> <a class="tag" href="{{ .CurrentSection.RelPermalink }}">{{ .Section }}/</a>{{ with .Params.tags }}{{ range . }} <a class="tag" href="{{ (printf "tags/%s/" (. | urlize)) | relURL }}">#{{ . }}</a>{{ end }}{{ end }}
+    <span class="date">{{ .Lastmod.Format "2006-01-02" }}</span> <a class="tag" href="{{ .CurrentSection.RelPermalink }}">{{ .Section }}/</a> <a class="tag" href="{{ .RelPermalink }}index.md">[md]</a>{{ with .Params.tags }}{{ range . }} <a class="tag" href="{{ (printf "tags/%s/" (. | urlize)) | relURL }}">#{{ . }}</a>{{ end }}{{ end }}
   </p>
   <blockquote>
     <div><strong>缓存摘要</strong>：{{ .Params.summary }}</div>
     {{ with .Params.ext_url }}<div><strong>主数据源链接</strong>：<a href="{{ . }}" target="_blank" rel="noopener">{{ . }}</a></div>{{ end }}
     {{ with .Params.backup_url }}<div><strong>备用校准链接</strong>：<a href="{{ . }}" target="_blank" rel="noopener">{{ . }}</a></div>{{ end }}
+    <div><strong>Agent Markdown 孪生页</strong>：<a href="{{ .RelPermalink }}index.md">{{ .RelPermalink }}index.md</a></div>
     <div><strong>GitHub Repo 文件</strong>：<code>content/{{ .File.Path }}</code></div>
   </blockquote>
   {{ .Content }}

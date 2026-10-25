@@ -1,15 +1,17 @@
-baseURL = "https://jstdlee.github.io/52etf/"
+baseURL = "https://52etf.net/"
 languageCode = "zh-cn"
 title = "52etf.net"
 timeZone = "Asia/Singapore"
 relativeURLs = false
 canonifyURLs = false
-enableRobotsTXT = false
+enableRobotsTXT = true
 
 [params]
-  description = "52etf.net 常用经济指标缓存、有效连接汇总与WebMCP站点 (仅内容与连接呈现 不做任何解读与资产透露)"
+  description = "52etf.net 常用经济指标缓存、Crypto链上多空、房地产观测与有效连接汇总 (Cloudflare Agent / WebMCP / SEO 友好站点 — 仅客观数据与连接呈现 不做任何解读与资产透露)"
   staleDaysLimit = 180
   refDate = "2026-10-25"
+  repoURL = "https://github.com/jstdlee/52etf"
+  mirrorURL = "https://jstdlee.github.io/52etf/"
 
 [taxonomies]
   tag = "tags"
@@ -17,6 +19,8 @@ enableRobotsTXT = false
 [mediaTypes]
   [mediaTypes."text/llms"]
     suffixes = ["txt"]
+  [mediaTypes."text/markdown"]
+    suffixes = ["md"]
 
 [outputFormats]
   [outputFormats.LLMS]
@@ -24,13 +28,24 @@ enableRobotsTXT = false
     baseName = "llms"
     isPlainText = true
     rel = "alternate"
+  [outputFormats.LLMSFull]
+    mediaType = "text/llms"
+    baseName = "llms-full"
+    isPlainText = true
+    rel = "alternate"
+  [outputFormats.MarkDown]
+    mediaType = "text/markdown"
+    baseName = "index"
+    isPlainText = true
+    rel = "alternate"
+    notAlternative = false
 
 [outputs]
-  home = ["HTML", "JSON", "LLMS", "RSS"]
-  section = ["HTML", "RSS"]
-  taxonomy = ["HTML"]
-  term = ["HTML"]
-  page = ["HTML"]
+  home = ["HTML", "JSON", "LLMS", "LLMSFull", "MarkDown", "RSS"]
+  section = ["HTML", "MarkDown", "RSS"]
+  taxonomy = ["HTML", "MarkDown"]
+  term = ["HTML", "MarkDown"]
+  page = ["HTML", "MarkDown"]
 
 [sitemap]
   changefreq = "weekly"

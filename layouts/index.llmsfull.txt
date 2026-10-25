@@ -1,0 +1,29 @@
+# {{ .Site.Title }} — Full Inline Corpus for LLMs & Agents (llms-full.txt)
+> Policy: Pure objective economic/crypto/market data cache & verified URLs only. Zero market commentary. Zero personal asset disclosure.
+> Content-Signal: search=yes, ai-input=yes, ai-train=no
+> Reference Date: 2026-10-25 (Asia/Singapore UTC+8)
+> Broken & Stale Link Report: {{ "404.txt" | absURL }}
+> Structured JSON Index: {{ "index.json" | absURL }}
+> Concise Index: {{ "llms.txt" | absURL }}
+> GitHub Repository: https://github.com/jstdlee/52etf
+
+================================================================================
+{{- $refUnix := (time "2026-10-25T12:00:00+08:00").Unix }}
+{{- range $idx, $p := sort (where .Site.RegularPages "Section" "!=" "") "Lastmod" "desc" }}
+{{- $ageDays := div (sub $refUnix $p.Lastmod.Unix) 86400 }}
+{{- $isStale := gt $ageDays 180 }}
+
+## [{{ add $idx 1 }}] {{ $p.Title }}{{ if $isStale }} [STALE_OVER_6M: {{ $ageDays }}d]{{ end }}
+- HTML_URL: {{ $p.Permalink }}
+- Markdown_Twin_URL: {{ $p.Permalink }}index.md
+- Repo_File: content/{{ $p.File.Path }}
+- Section: {{ $p.Section }} ({{ $p.CurrentSection.Title }})
+- Lastmod: {{ $p.Lastmod.Format "2006-01-02" }} (Age: {{ $ageDays }} days | Stale >180d: {{ $isStale }})
+- Tags: {{ delimit ($p.Params.tags | default slice) ", " }}
+- Summary: {{ $p.Params.summary }}
+- Primary_URL: {{ $p.Params.ext_url }}
+- Backup_URL: {{ $p.Params.backup_url }}
+
+{{ $p.RawContent }}
+--------------------------------------------------------------------------------
+{{- end }}

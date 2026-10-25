@@ -3,29 +3,125 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>{{ if not .IsHome }}{{ .Title }} · {{ end }}{{ .Site.Title }}</title>
-  <meta name="description" content="{{ with .Params.summary }}{{ . }}{{ else }}{{ with .Description }}{{ . }}{{ else }}{{ .Site.Params.description }}{{ end }}{{ end }}">
-  {{ with .Params.tags }}<meta name="keywords" content="{{ delimit . ", " }}">{{ end }}
-  <meta name="robots" content="index, follow">
+  {{- $pageTitle := cond .IsHome (printf "%s · 常用经济指标缓存、Crypto链上多空、房地产观测与有效连接汇总" .Site.Title) (printf "%s · %s" .Title .Site.Title) -}}
+  {{- $pageDesc := .Params.summary | default .Description | default .Site.Params.description -}}
+  <title>{{ $pageTitle }}</title>
+  <meta name="description" content="{{ $pageDesc }}">
+  {{- with .Params.tags }}
+  <meta name="keywords" content="{{ delimit . ", " }}, 52etf, 经济指标缓存, WebMCP, Cloudflare Agent">
+  {{- else }}
+  <meta name="keywords" content="52etf, 经济指标缓存, M1, M2, 美联储资产负债表, Hyperliquid, AHR999, 房地产住户贷款, 粮食价格指数, 原油库存, WebMCP, Cloudflare Agent">
+  {{- end }}
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+  <meta name="content-signal" content="search=yes, ai-input=yes, ai-train=no">
+  <meta property="og:site_name" content="{{ .Site.Title }}">
+  <meta property="og:locale" content="zh_CN">
+  <meta property="og:type" content="{{ if .IsPage }}article{{ else }}website{{ end }}">
+  <meta property="og:title" content="{{ $pageTitle }}">
+  <meta property="og:description" content="{{ $pageDesc }}">
+  <meta property="og:url" content="{{ .Permalink }}">
+  {{- if .IsPage }}
+  <meta property="article:modified_time" content="{{ .Lastmod.Format "2006-01-02T15:04:05+08:00" }}">
+  <meta property="article:section" content="{{ .Section }}">
+  {{- range .Params.tags }}
+  <meta property="article:tag" content="{{ . }}">
+  {{- end }}
+  {{- end }}
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="{{ $pageTitle }}">
+  <meta name="twitter:description" content="{{ $pageDesc }}">
   <link rel="canonical" href="{{ .Permalink }}">
+  <link rel="alternate" type="text/markdown" title="Markdown for Agents (This Page)" href="{{ .Permalink }}index.md">
+  <link rel="alternate" type="text/plain" title="LLMs Concise Directory (/llms.txt)" href="{{ "llms.txt" | relURL }}">
+  <link rel="alternate" type="text/plain" title="LLMs Full Single-Request Corpus (/llms-full.txt)" href="{{ "llms-full.txt" | relURL }}">
+  <link rel="alternate" type="text/plain" title="404 & Stale Link Audit (/404.txt)" href="{{ "404.txt" | relURL }}">
+  <link rel="alternate" type="application/json" title="Search & Agent JSON Index (/index.json)" href="{{ "index.json" | relURL }}">
+  <link rel="service-desc" type="application/json" title="MCP & WebMCP Manifest" href="{{ ".well-known/mcp.json" | relURL }}">
+  <link rel="agent-card" type="application/json" title="A2A Agent Card" href="{{ ".well-known/agent.json" | relURL }}">
   <link rel="sitemap" type="application/xml" title="Sitemap" href="{{ "sitemap.xml" | relURL }}">
-  <link rel="alternate" type="text/plain" title="LLMs Plaintext Index" href="{{ "llms.txt" | relURL }}">
-  <link rel="alternate" type="text/plain" title="404 & Stale Link Report" href="{{ "404.txt" | relURL }}">
-  <link rel="alternate" type="application/json" title="Search & Agent JSON Index" href="{{ "index.json" | relURL }}">
-  <link rel="service-desc" type="application/json" href="{{ ".well-known/mcp.json" | relURL }}">
   {{- with .OutputFormats.Get "RSS" }}
   <link rel="alternate" type="application/rss+xml" title="{{ $.Site.Title }}" href="{{ .RelPermalink }}">
   {{- end }}
+  {{- if .IsPage }}
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "{{ if .IsPage }}TechArticle{{ else }}DataCatalog{{ end }}",
-    "name": {{ .Title | jsonify | safeJS }},
-    "url": {{ .Permalink | jsonify | safeJS }},
-    "dateModified": "{{ .Lastmod.Format "2006-01-02T15:04:05+08:00" }}",
-    "description": {{ with .Params.summary }}{{ . | jsonify | safeJS }}{{ else }}{{ .Site.Params.description | jsonify | safeJS }}{{ end }}
+    "@graph": [
+      {
+        "@type": ["TechArticle", "Dataset"],
+        "headline": {{ .Title | jsonify | safeJS }},
+        "name": {{ .Title | jsonify | safeJS }},
+        "url": {{ .Permalink | jsonify | safeJS }},
+        "sameAs": {{ (printf "%sindex.md" .Permalink) | jsonify | safeJS }},
+        "datePublished": "{{ .Date.Format "2006-01-02" }}",
+        "dateModified": "{{ .Lastmod.Format "2006-01-02T15:04:05+08:00" }}",
+        "description": {{ $pageDesc | jsonify | safeJS }},
+        "inLanguage": "zh-CN",
+        "isAccessibleForFree": true,
+        "keywords": {{ (.Params.tags | default slice) | jsonify | safeJS }},
+        "isBasedOn": [
+          {{- with .Params.ext_url }}{{ . | jsonify | safeJS }}{{ end -}}
+          {{- if and .Params.ext_url .Params.backup_url }}, {{ end -}}
+          {{- with .Params.backup_url }}{{ . | jsonify | safeJS }}{{ end -}}
+        ],
+        "distribution": [
+          {
+            "@type": "DataDownload",
+            "encodingFormat": "text/markdown",
+            "contentUrl": {{ (printf "%sindex.md" .Permalink) | jsonify | safeJS }}
+          }
+        ]
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "52etf.net",
+            "item": {{ .Site.BaseURL | jsonify | safeJS }}
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": {{ .CurrentSection.Title | jsonify | safeJS }},
+            "item": {{ .CurrentSection.Permalink | jsonify | safeJS }}
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": {{ .Title | jsonify | safeJS }},
+            "item": {{ .Permalink | jsonify | safeJS }}
+          }
+        ]
+      }
+    ]
   }
   </script>
+  {{- else }}
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "name": {{ .Site.Title | jsonify | safeJS }},
+        "url": {{ .Site.BaseURL | jsonify | safeJS }},
+        "description": {{ $pageDesc | jsonify | safeJS }},
+        "inLanguage": "zh-CN"
+      },
+      {
+        "@type": "DataCatalog",
+        "name": {{ $pageTitle | jsonify | safeJS }},
+        "url": {{ .Permalink | jsonify | safeJS }},
+        "dateModified": "{{ .Lastmod.Format "2006-01-02T15:04:05+08:00" }}",
+        "description": {{ $pageDesc | jsonify | safeJS }},
+        "isAccessibleForFree": true
+      }
+    ]
+  }
+  </script>
+  {{- end }}
   <style>
     :root {
       --bg: #ffffff;
@@ -338,12 +434,12 @@
   <a href="{{ "tags/" | relURL }}">tags</a>
   <a href="{{ "05-crypto/" | relURL }}">crypto</a>
   <a href="{{ "04-realestate/" | relURL }}">realestate</a>
-  <a href="{{ "404.txt" | relURL }}">404.txt</a>
   <a href="{{ "llms.txt" | relURL }}">llms.txt</a>
+  <a href="{{ "llms-full.txt" | relURL }}">llms-full</a>
+  <a href="{{ "index.json" | relURL }}">json</a>
+  <a href="{{ "404.txt" | relURL }}">404.txt</a>
+  <a href="{{ ".well-known/mcp.json" | relURL }}">mcp</a>
   <a href="{{ "sitemap.xml" | relURL }}">sitemap</a>
-  {{- with .Site.Home.OutputFormats.Get "RSS" }}
-  <a href="{{ .RelPermalink }}">rss</a>
-  {{- end }}
 </nav>
 <main>
 {{- block "main" . }}{{- end }}

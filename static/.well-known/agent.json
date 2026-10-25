@@ -1,0 +1,61 @@
+{
+  "schema_version": "1.0",
+  "name": "52etf.net Data Cache & Link Directory Agent Endpoint",
+  "description": "Cloudflare Agent-friendly & WebMCP-enabled financial/macro/crypto indicator cache. Provides 1-request full Markdown corpus (/llms-full.txt), structured JSON (/index.json), per-page Markdown twins (/*/index.md), and CI-verified link audit (/404.txt).",
+  "url": "https://52etf.net/",
+  "mirror_url": "https://jstdlee.github.io/52etf/",
+  "provider": {
+    "organization": "52etf.net",
+    "repository": "https://github.com/jstdlee/52etf"
+  },
+  "version": "2026.10.25",
+  "capabilities": {
+    "streaming": false,
+    "pushNotifications": false,
+    "markdownForAgents": true,
+    "webMcp": true,
+    "contentSignals": "search=yes, ai-input=yes, ai-train=no"
+  },
+  "defaultInputModes": ["text/plain", "application/json"],
+  "defaultOutputModes": ["text/markdown", "application/json", "text/plain"],
+  "artifacts": {
+    "llms_txt": "https://52etf.net/llms.txt",
+    "llms_full_txt": "https://52etf.net/llms-full.txt",
+    "index_json": "https://52etf.net/index.json",
+    "home_markdown": "https://52etf.net/index.md",
+    "link_audit_404_txt": "https://52etf.net/404.txt",
+    "mcp_manifest": "https://52etf.net/.well-known/mcp.json"
+  },
+  "skills": [
+    {
+      "id": "macro-money-liquidity",
+      "name": "Macro Money & Liquidity Cache (01-macro-money)",
+      "description": "CN/US M1, M2, M2/GDP, Fed WALCL, TGA, ON RRP, CPI/PCE/PPI, PMI/ISM/NFP, GDP & IMF WEO debt."
+    },
+    {
+      "id": "commodities-food-energy",
+      "name": "Global Food, Energy & Metals Cache (02-commodities)",
+      "description": "FAO Food Price Index, USDA WASDE grain stocks, WTI/Brent/EIA oil & gas, Gold/Silver/Copper & Gold/Oil ratio, BDI & SCFI shipping."
+    },
+    {
+      "id": "bonds-fx-rates",
+      "name": "Sovereign Bonds, Credit Spreads & FX Cache (03-bonds-fx)",
+      "description": "CN/US 2Y/10Y/30Y yield curves, US HY OAS & BAA spreads, USD/CNY, DXY, US/JP rate differentials, CN short-term debt ratio."
+    },
+    {
+      "id": "realestate-credit",
+      "name": "Real Estate & Household Credit Cache (04-realestate)",
+      "description": "CN household loans vs 18T bank credit, 70-city housing prices & rental yields, US Case-Shiller & 30Y mortgage rates, HK RVD & SG URA property indices."
+    },
+    {
+      "id": "crypto-onchain-derivatives",
+      "name": "Crypto On-Chain & Derivatives Positioning Cache (05-crypto)",
+      "description": "Hyperliquid whale Vault/OI/funding, BTC AHR999/MVRV-Z/Puell/RHODL, CME BTC/ETH COT, Deribit DVOL/options skew, USDT/USDC/ETH/SOL DeFi TVL."
+    },
+    {
+      "id": "equity-tsla-spcx-valuation",
+      "name": "Equity Index Valuation & TSLA/SpaceX Positioning Cache (06-equity-tsla-spcx)",
+      "description": "CSI300/HSI/SPX/NDX PE/PB/CAPE/ERP, Shenwan sector PB-ROE, CN fund quarterly reports & US 13F, TSLA short interest/put-call & DXYZ SpaceX NAV discount."
+    }
+  ]
+}
