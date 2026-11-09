@@ -81,7 +81,7 @@ OK   [HTTP_200      ] content/06-equity-tsla-spcx/fund-managers-cn-qreport-and-u
 OK   [HTTP_403      ] content/06-equity-tsla-spcx/fund-managers-cn-qreport-and-us-13f.md (backup_url) -> https://www.sec.gov/edgar/searchedgar/companysearch
 OK   [HTTP_200      ] content/06-equity-tsla-spcx/sw-sector-pb-roe-archive.md (ext_url) -> https://data.eastmoney.com/bkzj/hy.html
 OK   [HTTP_200      ] content/06-equity-tsla-spcx/sw-sector-pb-roe-archive.md (backup_url) -> https://www.csindex.com.cn/
-OK   [HTTP_200      ] content/06-equity-tsla-spcx/tesla-tsla-spacex-spcx-long-short-positioning.md (ext_url) -> https://www.marketbeat.com/stocks/NASDAQ/TSLA/short-interest/
+OK   [HTTP_403      ] content/06-equity-tsla-spcx/tesla-tsla-spacex-spcx-long-short-positioning.md (ext_url) -> https://www.marketbeat.com/stocks/NASDAQ/TSLA/short-interest/
 OK   [HTTP_200      ] content/06-equity-tsla-spcx/tesla-tsla-spacex-spcx-long-short-positioning.md (backup_url) -> https://finviz.com/quote.ashx?t=TSLA
 OK   [HTTP_200      ] content/07-tools-strategy/legacy-fomc-dotplot-json-endpoint.md (ext_url) -> https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm
 OK   [HTTP_200      ] content/07-tools-strategy/legacy-fomc-dotplot-json-endpoint.md (backup_url) -> https://www.federalreserve.gov/monetarypolicy/openmarket.htm
